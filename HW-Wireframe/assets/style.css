@@ -1,0 +1,39 @@
+
+
+.major {
+    background-color: #ebebeb;
+    color: #777;
+    width: 960px;
+    padding: 10px;
+    float: center;
+    text-align: center;
+} 
+
+.section {
+    background-color: #ebebeb;
+    width: 495px;
+    padding: 10px;
+    text-align: center;
+}
+
+#article {
+    background-color: #777;
+    padding: 10px;
+    color: #ebebeb;
+
+}
+
+.tiny {
+    background-color: #ebebeb;
+    font-size: 18px;
+    padding: 1px;
+    color: #777;
+}
+
+h1 {
+    font-size: 18px
+}
+
+p {
+    font-size: 18px;
+}
