@@ -18,6 +18,7 @@ a {
     color: #777777;
     padding: 5px;
     margin-top: 5px;
+    text-decoration: none;
 }
 
 .head {
@@ -102,11 +103,9 @@ body {
 
 .banner {
     background-color: #4aaaa5;
-    height: 35px;
-    margin-bottom: 20px;
+    top: 130px;
     color: #ffffff;
-    position: absolute;
-    bottom: 40%;
+    position: relative;
     Width: 200px;
     text-align: center;
     padding-top: 15px;
@@ -115,4 +114,18 @@ body {
 img {
     float: left;
     margin: 10px;
+}
+
+.portimg {
+    height: 140px;
+    width: 240px;
+}
+
+#message {
+    height: 110px;
+    width: 600px;
+}
+
+input::placeholder {
+    vertical-align: top;
 }
