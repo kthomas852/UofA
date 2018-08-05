@@ -1,0 +1,33 @@
+.header {
+    background-color: #4aaaa5;
+    color: white;
+    padding: 5px;
+}
+
+c {
+    font-size: 18px;
+    color: #4aaaa5;
+    font-weight: bold;
+    text-align: left;
+    padding: 0px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    background-color: grey;
+    padding: 2px;
+}
+
+.main {
+    margin: 20px;
+}
+
+.about {
+    padding: 10px;
+    border-bottom: thin solid grey;
+}
+
+.foot {
+
+}
