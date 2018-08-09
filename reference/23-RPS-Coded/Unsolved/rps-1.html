@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 1</title>
+</head>
+
+<body>
+
+  <div id="game">
+
+    <h1>Press "r", "p" or "s" to Begin...</h1>
+    
+    <!--<h1>You just choose:<span id="guess"><strong>...waiting...</strong></span></h1>
+    <br>
+    <h1>The computer choose:<span id="compyguess"></span</h1> 
+    <br>
+    <h1>Wins: </h1>
+    <br>
+    <h1>Losses: </h1>
+    <br>
+    <h1>Ties: </h1>-->
+
+  </div>
+
+  <script type="text/javascript">
+    var wins = 0;
+    var loss = 0;
+    var tie = 0;
+    var yourPick = null;
+    var compyPick = null;
+    var compyChoice = ["r", "p", "s"];
+
+    yourPick = document.getElementById("guess");
+    //Generates compy's guess sends guess to HTML
+    compyPick = compyChoice[Math.floor(Math.random() * compyChoice.length)];
+    compyPick = document.getElementById("compyguess");
+
+    // Grabs user input.
+    document.onkeyup = function(event) {
+      console.log('Key up event= ', event);
+      yourPick.textContent = event.key;
+      console.log('new user-text= ', yourPick);
+
+    //Compares and see who wins
+      if(yourPick === compyPick) {
+        console.log(yourPick);
+        console.log(compyPick);
+        console.log("Tie Game");
+        tie++;
+      }
+      else if((yourPick === "r") && (compyPick === "p")) { 
+        console.log("you loose");
+        loss++;
+      }
+      else if((yourPick === "p") && (compyPick === "s")) {
+        console.log("You loose");
+      }
+      else{
+        console.log("No Idea")
+        console.log(wins + loss + tie);
+      }
+    };
+
+  </script>
+
+</body>
+
+</html>
