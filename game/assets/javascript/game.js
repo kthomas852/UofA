@@ -3,33 +3,40 @@
     This is the JavaScript for the game */
 
  //This is what is needed for generation of a random word
- var animal = ['cat', 'dog', 'lizard', 'elephant', 'tuna', 'chicken'];
+ var actor = ['cat', 'dog', 'lizard', 'elephant', 'tuna', 'chicken'];
  var max = 6;
  var guess = null;
  var guessCount = 5;
- var anGuess = null;
+ var actGuess = null;
  
+
+ //Function Section
+ //Random Generation Function
  function getRandomInt(max) {
      return Math.floor(Math.random() * Math.floor(max));
  }
 
- anGuess = animal[getRandomInt(max)];
-
- //Letter guess input from the user (probably should also make this a function)
-
- //Need to find better input method
- console.log(anGuess);
+ //Letter guess function - grabs letter from user input and checks it
+ 
+function letterGuesser(){
+ console.log(actGuess);
  var i = 0;
- while(anGuess.length > i) {
-     guess = prompt('What is your guess?')
-     if(anGuess[i] === guess) {
-         alert('Nailed It!!!');
-         console.log('i')
+ while(actGuess.length > i) {
+     guess = document.getElementByClassName('guess');
+     if(actGuess[i] === guess) {
+        return  i;
+                guess;
+                console.log('Letter guessed: ' + i);
      }
      else {
          console.log('Bro, do you even Java?!?!?!');
          ++i;
      }
  };
-
  alert('Faily McFailerson over here!')
+};
+
+
+ /*main body of game*/
+//generates actor to guess
+ actGuess = actor[getRandomInt(max)];
