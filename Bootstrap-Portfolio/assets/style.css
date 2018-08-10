@@ -74,7 +74,21 @@ f {
 }
 
 .portimg {
-    height: 80px;
-    width: 80px;
-    margin: 10px;
+    height: 85%;
+    width: 85%;
+    top: -15px;
+    left: 5px;
+    position: relative;
+}
+
+.banner {
+    width: 115%;
+    height: 20%;
+    background-color: #4aaaa5;
+    color: whitesmoke;
+    z-index: 3;
+    top: 65%;
+    right: 15px;
+    position: relative;
+    text-justify: center;
 }
