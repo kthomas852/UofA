@@ -58,13 +58,14 @@ body {
     width: 270px;
     background-color: #ffffff;
     color: #666666;
-    margin-right: 100px;
-    float: right;
+    float: left;
+    margin-left: 800px;
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
     padding-bottom: 30px;
     text-align: center;
+    position: absolute;
 }
 
 .lilhead {
@@ -101,12 +102,12 @@ body {
     border-top: 8px;
     border-top-color: #4aaaa5;
     border-top-style: solid;
+    z-index: 4;
 }
 
 .port {
     background-color: #666666;
     float: left;
-    overflow: auto;
     margin: 20px;
     margin-top: 50px;
 }
@@ -141,3 +142,74 @@ img {
     width: 600px;
 }
 
+#aboutP {
+    height: 850px;
+}
+
+@media screen and (max-width: 768px) {
+    .about {
+        width: 540px;
+        height: 390px;
+        margin-left: 20px;
+        overflow: auto;
+    }
+
+    .head {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+    .sidebar {
+        margin-top: 20px;
+        margin-left: 160px;
+        float: left;
+        position: relative;
+    }
+
+    #message {
+        width: 520px;
+    }
+
+    #aboutP {
+        height: 1600px;
+    }
+
+    #aboutC {
+        height: 320px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .about {
+        width: 300px;
+        height: 740px;
+        margin-left: 5px;
+        
+    }
+
+    .head {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .sidebar {
+        float: left;
+        margin-left: 20px;
+    }
+
+    .port {
+        margin: 10px;
+
+    }
+
+    img {
+        float: none;
+    }
+
+    #message {
+        width: 280px;
+    }
+
+    #aboutP {
+        height: 1350px;
+    }
+}
