@@ -21,15 +21,20 @@ var game = {
             board.push('_ ');
         }
         board[word.indexOf(' ')] = '  ';
-        document.querySelector('#guessSpace').innerHTML = board.join(',');
+        console.log(board);
+        board.join(",");
+        console.log(board);
+        document.querySelector('#guessSpace').innerHTML = board;
+        return board;
     },
-
+    
     //generates random actor
     getActor: function(array, word){
         word = array[Math.floor(Math.random()*Math.floor(array.length))];
         console.log(word);
+        return word;
     },
-
+    
     //posts used bad letters
     deadLtrs: function(){
         targetDiv = document.getElementById('grave');
@@ -37,7 +42,7 @@ var game = {
         targetDiv.append(ptag);
         ptag.textContent = userText;
     },
-
+    
     //posts good choices in appropriate places
     liveLtrs: function(){
         targetDiv = document.getElementById('guessSpace');
@@ -49,11 +54,13 @@ var game = {
     reseter: function(){
         //...
     },
-
-
+    
+    
 }; //END of game Obj
 
 /*Run Time game play*/
-game.getActor(game.actorList, game.actor);
-
+document.onkeyup = function(event){
+game.actor = game.getActor(game.actorList, game.actor);
+console.log('('+game.actor+')');
 game.start(game.guessRight, game.actor);
+}
