@@ -4,6 +4,8 @@
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!--<script src="assets/javascript/itiration1.js"></script>-->
+    <script src="assets/javascript/game.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,7 +18,6 @@
     </div>
 </head>
 <body>
-    <script src="assets/javascript/game.js"></script>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -31,9 +32,10 @@
             </div>
             <div class="col-md-6">
                 <div class="row left">This will be the clue that they will use to Guess</div>
-                <div class="row left">_ _ _ _ _ (spaces for the guesses)</div>
+                <div class="row left" id="guessSpace">_ _ _ _ _ (spaces for the guesses)</div>
                 <div class="row left">What will you Choose: <span id="guess" placeholder=". ."></span></div>
-                <div class="row left">(How many guess you got wront and how many left)</div>
+                <div class="row left" id="counters">(How many guess you got wront and how many left)</div>
+                <div class="row left" id="grave">Letters already used: </div>
             </div>
         </div>
     </div>
