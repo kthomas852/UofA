@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/javascript/ruby.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Merienda|Pacifico" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystals Game</title>
+    <h1 class="headTag">Crystal Game!</h1>
+</head>
+<body>
+    <div class="chunks">
+    <p class="inText">
+        <br>
+        You will be given a random number at the start of<br>
+        game.<br>
+        <br>
+        There are four crystals below. By clicking on a crystal You<br>
+        will add a specific amount of points to your total score.<br>
+        <br>
+        You win the game by matching your total score to random<br>
+        number, you lose the game if your total score goes above<br>
+        the random number.<br>
+        <br>
+        The value of each crystal is hidden from you until youclick on it.<br>
+        <br>
+        Each time when the game starts, the game will change the<br>
+        values of each crystal.<br>
+        <br>
+    </p>
+    </div>
+
+    <div class="chunks">
+    <div class="scoreBoard">
+        <span>Game picks this number: <span id="gameNum"></span></span>
+        <div id="winLoss">
+            <span>Wins: <span id="wins"></span></span>
+            <span>Losses: <span id="losses"></span></span>
+        </div>
+    </div>
+    <div>
+        <img id="crystalOne" src="assets/Images/crystalOne.jpg" class="crystal">
+        <img id="crystalTwo" src="assets/Images/crystalTwo.jpg" class="crystal">
+        <img id="crystalThree" src="assets/Images/crystalThree.jpg" class="crystal">
+        <img id="crystalFour" src="assets/Images/crystalFour.jpg" class="crystal">
+    </div>
+    <div class="scoreBoard">
+    <span>Your total score is:</span>
+    <span class="numbers" id="playerNum"></span>
+    </div>
+    </div>
+</body>
+</html>

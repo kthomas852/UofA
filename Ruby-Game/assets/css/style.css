@@ -1,0 +1,47 @@
+.crystal {
+    height: 80px;
+    width: 80px;
+    background: whitesmoke;
+    margin: 10px;
+}
+
+.chunks {
+    float: left;
+    margin-right: 50px;
+}
+
+.headTag {
+    color: midnightblue;
+    background-color: skyblue;
+    padding: 10px;
+    text-align: center;
+    width: 250px;
+}
+
+.inText {
+    background-color: lightgreen;
+    width: 500px;
+}
+
+.scoreBoard {
+    background-color: lightcyan;
+    width: 500px;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+
+span {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 30px;
+    padding: 20px;
+}
+
+p {
+    font-family: 'Merienda', cursive;
+}
+
+body {
+    background-image: url("../Images/background2.jpg");
+}

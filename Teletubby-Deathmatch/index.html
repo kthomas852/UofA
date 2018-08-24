@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teletubby Deathmatch</title>
+    <h1>Teletubby Deathmatch</h1>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="character">
+                <p>Dipsy</p>
+                <img id="dipsy" src="assets/images/dipsy.png"/>
+                <p id="dHealth">120</p> 
+            </div>
+            <div class="character">
+                <p>Laa Laa</p>
+                <img id="ll" src="assets/images/laa_laa.png"/>
+                <p id="llHealth">100</p> 
+            </div>
+            <div class="character">
+                <p>Po</p>
+                <img id="po" src="assets/images/po.png"/>
+                <p id="poHealth">90</p> 
+            </div>
+            <div class="character">
+                <p>Tinky Winky</p>
+                <img id="tw" src="assets/images/tinky_winky.jpg"/>
+                <p id="twHealth">180</p>    
+            </div>
+        </div>
+        <div class="row you"><h1>Your Character</h1>
+        </div class="row">
+        <div id="enemies"><h1>Enemies Available to attack</h1>
+        </div>
+        <h1>Fight Section</h1>
+        <button id="attack">Attack</button>
+        <div id="defender"><h1>Defender</h1>
+
+        </div>
+    </div>
+</body>
+</html>
