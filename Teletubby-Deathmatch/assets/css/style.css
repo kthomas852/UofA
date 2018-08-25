@@ -1,9 +1,9 @@
 .character {
     background-color: green;
-    border: 2px, solid, black;
-    margin: 10px;
-    height: 220px;
-    width: 220px;
+    border: thin, solid, black;
+    margin: 5px;
+    height: 140px;
+    width: 130px;
     
 }
 
@@ -12,18 +12,26 @@
 }
 
 .you {
-    height: 120px;
 }
 
 img {
     position: relative;
-    top: 50%;
     left: 25%;
-    height: 120px;
-    width: 120px;
-    margin: 5px;
+    height: 70px;
+    width: 70px;
 }
 
 p {
     text-align: center;
+}
+
+div {
+    position: relative;
+    margin: 5px;
+}
+
+body{
+    background-image: url("../images/field.jpg");
+    width: 1000px;
+    height: 750px;
 }
