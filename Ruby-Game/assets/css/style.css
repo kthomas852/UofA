@@ -19,8 +19,7 @@
 }
 
 .inText {
-    background-color: lightgreen;
-    width: 500px;
+    width: 430px;
 }
 
 .scoreBoard {
@@ -44,4 +43,9 @@ p {
 
 body {
     background-image: url("../Images/background2.jpg");
+}
+
+.text {
+    padding: 10px;
+    background-color: lightgreen;
 }
