@@ -1,5 +1,3 @@
-//This is the JavaScript for the teletubby game
-//Objects for combatants
 var dipsy = {
     power: 8,
     health: 120,
@@ -9,7 +7,6 @@ var dipsy = {
     +   '<p id="dHealth"></p>'
     +'</div>',
     idTag: '#dipsy',
-    classTag: '.dipsy',
 };
 
 var ll = {
@@ -21,7 +18,6 @@ var ll = {
     +   '<p id="llHealth"></p>' 
     +'</div>',
     idTag: '#ll',
-    classTag: '.ll',
 };
 
 var po = {
@@ -33,7 +29,6 @@ var po = {
     +   '<p id="poHealth"></p>'
     +'</div>',
     idTag: '#po',
-    classTag: '.po',
 };
 
 var tw = {
@@ -45,72 +40,14 @@ var tw = {
     +   '<p id="twHealth"></p>'   
     +'</div>',
     idTag: '#tw',
-    classTag: '.tw',
 };
 
-var enemyCount = 3;
-var aHealth = 0;
-var pHealth = 0;
+var enemyCount = 4;
+var turn = 0;
+var hero = null;
+var punished = null;
 
-/*library of functions*/
-//Selects a charater
-var heroSelector = function(hero){
-    moveHero(hero);
-    upHealth();
-    $('#dipsy').on('click', function(){
-        if(hero === dipsy){
-            console.log('Already selected')
-        } else {
-        moveVillain(dipsy, hero);
-            $('#attack').on('click', function(){
-                hero.health = heroAttack(dipsy, hero);
-                dipsy.health = vilAttack(dipsy, hero);
-                checkHealth(dipsy, hero);
-            });
-        };
-    });
-    $('#po').on('click', function(){
-        if(hero === po){
-            console.log('Already selected')
-        } else {
-        moveVillain(po, hero);
-            $('#attack').click(function(){
-                hero.health = heroAttack(po, hero);
-                po.health = vilAttack(po, hero);
-                checkHealth(po, hero);
-            });
-        };
-    });
-
-    $('#ll').on('click', function(){
-        if(hero === ll){
-            console.log('Already selected')
-        } else {
-        moveVillain(ll, hero);
-            $('#attack').click(function(){
-                hero.health = heroAttack(ll, hero);
-                ll.health = vilAttack(ll, hero);
-                checkHealth(ll, hero);
-            });
-        };
-    });
-
-    $('#tw').on('click', function(){
-        if(hero === tw){
-            console.log('Already selected')
-        } else {
-        moveVillain(tw, hero);
-        };
-            $('#attack').click(function(){
-                
-                hero.health = heroAttack(tw, hero);
-                tw.health = vilAttack(tw, hero);
-                checkHealth(tw, hero);
-            });
-    });
-};
-
-//erases content and sets board to new game
+/*function Library*/
 var setup = function(){
     $('#start').append(tw.pageCode);
     $('#start').append(po.pageCode);
@@ -118,59 +55,15 @@ var setup = function(){
     $('#start').append(dipsy.pageCode);
     console.log('board set...')
 };
-
-//move hero selected and changes bacground to white
+//Moves Hero into place
 var  moveHero = function(champ){
-    pHealth = champ.health;
-    if(enemyCount === 3){
     $('#you').append(champ.pageCode);
     $(champ.idTag).attr('style', 'background-color: white');
-    }
+    return champ;
 };
-
-//Checks if anyone is dead
-var checkHealth = function(anti, pro){
- if(pro.health < 1){
-    console.log('You Lose!!!');
-    console.log('You Lose!!!');
-    console.log('You Lose!!!');
-    unclickable();
-    } else if (anti.health < 1) {
-        console.log('Round to you...');
-        checkWin();
-        $(anti.classTag).remove();
-        if (pro === tw) {
-            tw.power = tw.power * 2;
-        } else if (pro === ll) {
-            ll.power = ll.power * 2;
-        } else if (pro === po) {
-            po.power = po.power * 2;
-        } else if (pro === dipsy) {
-            dipsy.power = dipsy.power * 2;
-        };
-        //clickable();
-        heroSelector(pro);
-    };
-    upHealth();
-};
-
-//varies between clickable and not
-var unclickable = function(){
-    $('.po').removeAttr('id');
-    $('.tw').removeAttr('id');
-    $('.ll').removeAttr('id');
-    $('.dipsy').removeAttr('id');
-};
-
-var clickable = function(){
-    $('.po').attr('id', '#po');
-    $('.tw').attr('id', '#tw');
-    $('.ll').attr('id', '#ll');
-    $('.dipsy').attr('id', '#dipsy');
-}
-
-//moves enemies into action ready position
+//Moves enemies into place
 var moveEnemies = function(vil1, vil2, vil3){
+    $('#start').html('');
     $('#enemies').append(vil1.pageCode);
     $(vil1.idTag).attr('style', 'background-color: red');
     $('#enemies').append(vil2.pageCode);
@@ -182,43 +75,13 @@ var moveEnemies = function(vil1, vil2, vil3){
     $('h2').addClass('hellText');
     console.log('Villains Ready');
 };
-
 //moves next villain into position
 var moveVillain = function(villain){
-    aHealth = villain.health;
-    enemyCount--;
     $(villain.idTag).remove();
     $('#defender').append(villain.pageCode);
     $(villain.idTag).attr('style', 'background-color: black; color: white');
-    upHealth();
-    //unclickable();
+    return villain;
 };
-
-//Checks game condition for win
-var checkWin = function(vil, cap){
-    if(enemyCount === 0){
-        let winMessage = '<h1 class="win">YOU WIN!!!<h1>';
-        $('#enemies').append(winMessage);
-        $('#defender').append(winMessage);
-    };
-        console.log('Got to this step');
-    
-};
-
-//attacks two current combatants 
-var heroAttack = function(anti, pro){
-    anti.health = anti.health - pro.power;
-    pro.health = pro.health - anti.power;
-    return pro.health;
-};
-
-var vilAttack = function(vil, hero){
-    vil.health = vil.health - hero.power;
-    hero.health = hero.health - vil.power;
-    return anti.health;
-};
-
-
 //Updates the health status of all players
 var upHealth = function(){
     $('#dHealth').html(dipsy.health);
@@ -227,39 +90,152 @@ var upHealth = function(){
     $('#twHealth').html(tw.health);
     console.log('Power  dipsy:' + dipsy.power + ' po:' + po.power + ' LL:' + ll.power + ' tw:' + tw.power);
     console.log('Health  dipsy:' + dipsy.health + ' po:' + po.health + ' LL:' + ll.health + ' tw:' + tw.health);
-}
+};
+//attacks two current combatants 
+var heroAttack = function(anti, pro){
+    let vil = anti;
+    let champ = pro;
+    vil.health = vil.health - champ.power;
+    champ.health = champ.health - vil.power;
+    return champ.health;
+};
+
+var villainAttack = function(anti, pro){
+    console.log(anti.power);
+    let vil = anti;
+    let champ = pro;
+    vil.health = vil.health - champ.power;
+    champ.health = champ.health - vil.power;
+    console.log(vil.power);
+    return anti.health;
+};
+//Checks if anyone is dead
+var checkHealth = function(anti, pro){
+    if(pro.health < 1){
+       console.log('You Lose!!!');
+       console.log('You Lose!!!');
+       console.log('You Lose!!!');
+       } else if (anti.health < 1) {
+           console.log('Round to you...');
+           $(anti.classTag).remove();
+           if (pro === tw) {
+               tw.power = tw.power * 2;
+           } else if (pro === ll) {
+               ll.power = ll.power * 2;
+           } else if (pro === po) {
+               po.power = po.power * 2;
+           } else if (pro === dipsy) {
+               dipsy.power = dipsy.power * 2;
+           };
+       }else{};
+   };
+//Checks game condition for win
+var checkWin = function(){
+    if(enemyCount === 0){
+        let winMessage = '<h1 class="win">YOU WIN!!!<h1>';
+        $('#enemies').append(winMessage);
+        $('#defender').append(winMessage);
+    };
+        console.log('Win checked but not yet');
+    
+};
 
 /*Game Play*/
-$('document').ready(function() {
-    console.log('Page is loaded and Ready!');
-
-    setup();
-    upHealth();
-    $('#dipsy').on('click', function () {
-        console.log('Dipsy selected');
-        $('#start').html('');
-        moveEnemies(tw, po, ll);
-        heroSelector(dipsy);
-    });
-
-    $('#ll').on('click', function () {
-        console.log('ll selected');
-        $('#start').html('');
-        moveEnemies(tw, po, dipsy);
-        heroSelector(ll);
-    });
-
-    $('#po').on('click', function () {
-        console.log('po selected');
-        $('#start').html('');
-        moveEnemies(tw, ll, dipsy);
-        heroSelector(po);
-    });
-
-    $('#tw').on('click', function () {
-        console.log('tw selected');
-        $('#start').html('');
+$('document').ready(function(){
+console.log('Page is loaded and Ready!');
+setup();
+advance();
+function advance(){
+$('#tw').on('click', function () {
+    if(enemyCount === 4){
+        hero = moveHero(tw);
         moveEnemies(po, ll, dipsy);
-        heroSelector(tw);
-    });
+        enemyCount--;
+    }else if((enemyCount === 3) && (turn === 0)){
+        punished = moveVillain(tw);
+        turn++;
+    }else if((enemyCount === 2) && (turn === 1)){
+        punished = moveVillain(tw);
+        turn++;
+    }else if((enemyCount === 1) && (turn === 2)){
+        punished = moveVillain(tw);
+        turn++;
+    }else{   
+        console.log('Skipped');
+    };
+    advance();
+});
+
+$('#ll').on('click', function () {
+    if(enemyCount === 4){
+        hero = moveHero(ll);
+        moveEnemies(po, tw, dipsy);
+        enemyCount--;
+    }else if((enemyCount === 3) && (turn === 0)){
+        punished = moveVillain(ll);
+        turn++;
+    }else if((enemyCount === 2) && (turn === 1)){
+        punished = moveVillain(ll);
+        turn++;
+    }else if((enemyCount === 1) && (turn === 2)){
+        punished = moveVillain(ll);
+        turn++;
+    }else{
+        console.log('Skipped');
+    };
+    advance();
+});
+
+$('#po').on('click', function () {
+    if(enemyCount === 4){
+        hero = moveHero(po);
+        moveEnemies(tw, ll, dipsy);
+        enemyCount--;
+    }else if((enemyCount === 3) && (turn === 0)){
+        punished = moveVillain(po);
+        turn++;
+    }else if((enemyCount === 2) && (turn === 1)){
+        punished = moveVillain(po);
+        turn++;
+    }else if((enemyCount === 1) && (turn === 2)){
+        punished = moveVillain(po);
+        turn++;
+    }else{
+        console.log('Skipped');
+    };
+    advance();
+});
+
+$('#dipsy').on('click', function () {
+    if(enemyCount === 4){
+        hero = moveHero(dipsy);
+        moveEnemies(po, ll, tw);
+        enemyCount--;
+        console.log('Enemies: ' + enemyCount);
+        console.log('Turn: ' + turn);
+        console.log(hero);
+    }else if((enemyCount === 3) && (turn === 0)){
+        punished = moveVillain(dipsy);
+        turn++;
+    }else if((enemyCount === 2) && (turn === 1)){
+        punished = moveVillain(dipsy);
+        turn++;
+    }else if((enemyCount === 1) && (turn === 2)){
+        punished = moveVillain(dipsy);
+        turn++;
+    }else{
+        console.log('Skipped');
+    };
+    advance();
+});
+
+$('#attack').on('click', function () {
+    hero.health = heroAttack(punished, hero);
+    punished.health = villainAttack(punished, hero);
+    checkHealth(punished, hero);
+    advance();
+});
+upHealth();
+checkWin();
+};
 });
