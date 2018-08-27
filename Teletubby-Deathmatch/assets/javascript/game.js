@@ -58,10 +58,9 @@ var setup = function () {
     console.log('board set...')
 };
 //Moves Hero into place
-var moveHero = function (champ) {
-    $('#you').append(champ.pageCode);
-    $(champ.idTag).attr('style', 'background-color: white');
-    return champ;
+var moveHero = function () {
+    $('#you').append(hero.pageCode);
+    $(hero.idTag).attr('style', 'background-color: white');
 };
 //Moves enemies into place
 var moveEnemies = function (vil1, vil2, vil3) {
@@ -144,8 +143,9 @@ $('document').ready(function () {
     function advance() {
         $('#tw').unbind().on('click', function () {
             if (enemyCount === 4) {
-                hero = moveHero(tw);
+                hero = tw;
                 moveEnemies(po, ll, dipsy);
+                moveHero();
                 enemyCount--;
             } else if ((enemyCount === 3) && (turn === 0)) {
                 punished = moveVillain(tw);
@@ -164,8 +164,9 @@ $('document').ready(function () {
 
         $('#ll').unbind().on('click', function () {
             if (enemyCount === 4) {
-                hero = moveHero(ll);
+                hero = ll;
                 moveEnemies(po, tw, dipsy);
+                moveHero();
                 enemyCount--;
             } else if ((enemyCount === 3) && (turn === 0)) {
                 punished = moveVillain(ll);
@@ -184,8 +185,9 @@ $('document').ready(function () {
 
         $('#po').unbind().on('click', function () {
             if (enemyCount === 4) {
-                hero = moveHero(po);
+                hero = po;
                 moveEnemies(tw, ll, dipsy);
+                moveHero();
                 enemyCount--;
             } else if ((enemyCount === 3) && (turn === 0)) {
                 punished = moveVillain(po);
@@ -204,8 +206,9 @@ $('document').ready(function () {
 
         $('#dipsy').unbind().on('click', function () {
             if (enemyCount === 4) {
-                hero = moveHero(dipsy);
+                hero = dipsy;
                 moveEnemies(po, ll, tw);
+                moveHero();
                 enemyCount--;
                 console.log('Enemies: ' + enemyCount);
                 console.log('Turn: ' + turn);

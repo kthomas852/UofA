@@ -15,6 +15,7 @@
     color: red;
     font-weight: bold;
     font-size: 30px;
+    text-shadow: -1px 0 orange, 0 1px orange, 0 -1px orange;
 }
 
 img {
@@ -35,12 +36,12 @@ div {
 
 body{
     background-image: url("../images/field.jpg");
-    width: 1000px;
-    height: 750px;
+    width: 800px;
+    height: 600px;
 }
 
 .hell {
-    background-image: url("../images/hell.jpg");
+    background-image: url("../images/dirtwall.jpg");
 }
 .hellText {
     color: white;
