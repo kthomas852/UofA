@@ -36,8 +36,8 @@ div {
 
 body{
     background-image: url("../images/field.jpg");
-    width: 800px;
-    height: 600px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .hell {
