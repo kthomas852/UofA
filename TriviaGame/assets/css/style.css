@@ -1,0 +1,49 @@
+h1 {
+
+}
+
+h3 {
+
+}
+
+body {
+    background-image: url("../images/Coolbg.jpg");
+    width: 800px;
+    height: 60px;
+}
+
+.gameBox {
+    background-color: #00ffc7;
+    height: 400px;
+    align-content: center;
+    margin-top: 50px;
+    padding: 20px;
+    left: 20%;
+}
+
+.strBtn {
+    background-color: #fffa00;
+    position: relative;
+    left: 35%;
+    top: 30%;
+    border: 3px solid black;
+    text-align: center;
+    padding: 20px;
+    width: 200px;
+    vertical-align: middle;
+}
+
+.strBtn:hover {
+    cursor: pointer;
+}
+
+.title {
+    color: black;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.questions {
+    text-align: center;
+}

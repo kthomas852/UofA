@@ -1,3 +1,4 @@
+$('document').ready(function(){
 var dipsy = {
     power: 8,
     health: 120,
@@ -107,7 +108,7 @@ var villainAttack = function(anti, pro){
     vil.health = vil.health - champ.power;
     champ.health = champ.health - vil.power;
     console.log(vil.power);
-    return anti.health;
+    return vil.health;
 };
 //Checks if anyone is dead
 var checkHealth = function(anti, pro){
@@ -141,7 +142,7 @@ var checkWin = function(){
 };
 
 /*Game Play*/
-$('document').ready(function(){
+//$('document').ready(function(){
 console.log('Page is loaded and Ready!');
 setup();
 advance();
