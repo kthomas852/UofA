@@ -1,0 +1,13 @@
+body {
+    background-image: url("../images/background2.jpg");
+}
+
+#cat-button{
+    position: absolute;
+    left: 50%;
+    top: 20px;
+}
+
+.spacer{
+    height:80px;
+}
