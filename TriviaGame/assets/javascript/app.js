@@ -1,50 +1,57 @@
 /*Javascript for the Trivia Game*/
 var game = {
-    temp: '<div id="question1" class="row">'
+    temp: '<div id="start" class="row">'
     +'<div class="col-md-1"></div>'
     +'<div class="col-md-10 gameBox">'
     +'    <h1 class="title">Totally Trivial Trivia</h1>'
-    +'    <h3>Time Remaining to Answer: <span id="timer"></span></h3>'
+    +'    <h3 id="tBlock">Time Remaining to Answer: <span id="timer"></span></h3>'
     +'    <div class="questions"><h3 id="quiz"></h3>'
-    +'        <input type="radio" name="answer" value=""/><span id="ans1"></span></input><br>'
-    +'        <input type="radio" name="answer" value=""/><span id="ans2"></span></input><br>'
-    +'        <input type="radio" name="answer" value=""/><span id="ans3"></span></input><br>'
-    +'        <input type="radio" name="answer" value=""/><span id="ans4"></span></input><br>'
-    +'   <button id="submit" class="btn btn-secondary">Submit</button>'
+    +'        <input type="radio" name="answer" value="ans1"/><span id="ans1"></span></input><br>'
+    +'        <input type="radio" name="answer" value="ans2"/><span id="ans2"></span></input><br>'
+    +'        <input type="radio" name="answer" value="ans3"/><span id="ans3"></span></input><br>'
+    +'        <input type="radio" name="answer" value="ans4"/><span id="ans4"></span></input><br>'
+    +'        <div class="spacer"></div>'
     +'  </div>'
+    +'   <button id="submit" class="btn btn-secondary">Submit</button>'
     +'</div>'
     +'<div class="col-md-1"></div>'
     +'</div>',
 
-    quest1: {
-        Q: 'This is my first Question?',
-        Answers: ['cats', 'dogs', 'birds', 'elephants'],
-        true: 'Some Random Stuff',
+    //Array holding the questions
+    questions:[
+    {
+        Q: 'Who plays the shy scientist who who falls for S.J.P. in Mars Attacks?',
+        Answers: ['Jack Nicholson,', 'Danny DeVito', 'Martin Short', 'Jim Brown'],
+        true: 'Pierce Brosnan',
     },   
 
-    quest2: {
-        Q: 'This is my Second Question?',
-        Answers: [],
-        true: '',
+    {
+        Q: 'Name the movie that Bill Paxton was NOT in?',
+        Answers: ['Aliens', 'Frailty', 'True Lies', 'Twister'],
+        true: 'Tremors',
     },   
 
-    quest3: {
-        Q: '',
-        Answers: [],
-        true: '',
+    {
+        Q: 'In what movie does Jeff Goldblum have his DNA spliced with an insect?',
+        Answers: ['Beetle Juice', 'Jurassic Park', 'Space Invaders' , 'Independance Day'],
+        true: 'The Fly',
     },   
 
-    quest4: {
-        Q: '',
-        Answers: [],
-        true: '',
+    {
+        Q: 'Which big star makes their first big appearance in the movie Mars Attacks?',
+        Answers: ['Jack Black', 'Glenn Close', 'Sarah Jessica Parker', 'Michael J. Fox'],
+        true: 'Natalie Portman',
     },   
+    ],
 
 };//END of Obj
 
 var questionCount = 0;
-var questionArray = [game.quest1.Q, game.quest2.Q, game.quest3.Q, game.quest4.Q];
-var answerArray = [game.quest1.true, game.quest2.true, game.quest3.true, game.quest4.true];
+var gameTime = 30;
+var ansSelect = '';
+var TO = null;
+var timer = null;
+var gotRight = 0;
 
 /*Functino Library*/
 var setBoard = function(){
@@ -54,27 +61,76 @@ var setBoard = function(){
 };
 
 var nextQuestion = function(){
-    $('#quiz').text(questionArray[questionCount]);
+    setBoard();
+    clearTimeout(TO);
+    gameTime = 30;
+    $('#quiz').text(game.questions[questionCount].Q);
     let rNum = Math.floor(Math.random()* Math.floor(4))+1;
-    let ansSelect = '#ans' + rNum.toString();
+    ansSelect = '#ans' + rNum.toString();
     console.log(ansSelect)
     for(i=0; i<4; i++){
-    $('#ans' + (1+i).toString()).text(game.quest1.Answers[i]);
+    $('#ans' + (1+i).toString()).text(game.questions[questionCount].Answers[i]);
     };
-    $(ansSelect).text(answerArray[questionCount]);
-
+    $(ansSelect).text(game.questions[questionCount].true);
+    timer = setInterval(decrement, 1000);
     questionCount++;
+    buttonWatch();
+    console.log('Out of question function');    
+};
+
+var buttonWatch = function(){
+$('#submit').click(function(){
+    clearInterval(timer);
+    console.log('submit pressed');
+    if($('input[value=' + ansSelect.substring(1) + ']').is(':checked')){
+        $('#timer').text('ANSWER CORRECT!');
+        gotRight++;
+        console.log('correct answer selected');
+    }else{
+        $('#timer').text('ANSWER INCORRECT SORRY');
+        console.log('correct answer NOT selected');
+    };
+    endCheck();
+    TO = setTimeout(nextQuestion, 3000);
+});
+};
+
+var decrement = function(){
+    gameTime--;
+    $('#timer').text(gameTime);
+    if(gameTime === 0){
+        console.log('You ran out of time');
+        endCheck();
+        timesUp();
+    }
+};
+
+var timesUp = function(){
+    clearInterval(timer);
+    $('#timer').text('OUT OF TIME');
+    $('#quiz').text("What's a matter, cat got your tounge?");
+    TO = setTimeout(nextQuestion, 3000);
+};
+
+var endCheck = function(){
+    if(questionCount === game.questions.length){
+        $('#tBlock').text("You've finished the quiz!");
+        $('#questions').html('<h3 id="end"></h3>');
+        $('#end').text("You answered " + gotRight + " of " + game.questions.length + " Correct!");
+        $('#submit').text('Try Again');
+        $('#submit').unbind().click(function(){
+            questionCount = 0;
+            gotRight = 0;
+            console.log('questionCount is '+ questionCount);
+            nextQuestion();
+        });
+    }
+    console.log('Keep going');
 };
 
 /*Initiates the game*/
 $('document').ready(function(){
 $('.strBtn').click(function(){
-    setBoard();
-    nextQuestion();
-
-});
-
-$('#submit').click(function(){
     nextQuestion();
 });
 
