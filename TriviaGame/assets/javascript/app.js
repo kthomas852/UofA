@@ -91,7 +91,7 @@ $('#submit').click(function(){
         console.log('correct answer NOT selected');
     };
     endCheck();
-    TO = setTimeout(nextQuestion, 3000);
+        TO = setTimeout(nextQuestion, 3000);
 });
 };
 
@@ -114,11 +114,15 @@ var timesUp = function(){
 
 var endCheck = function(){
     if(questionCount === game.questions.length){
+        clearTimeout(TO);
+        clearInterval(timer);
         $('#tBlock').text("You've finished the quiz!");
-        $('#questions').html('<h3 id="end"></h3>');
+        $('.questions').html('<h3 id="end"></h3>');
         $('#end').text("You answered " + gotRight + " of " + game.questions.length + " Correct!");
         $('#submit').text('Try Again');
+        TO = setTimeout(nextQuestion, 600000);
         $('#submit').unbind().click(function(){
+            clearTimeout(TO);
             questionCount = 0;
             gotRight = 0;
             console.log('questionCount is '+ questionCount);
