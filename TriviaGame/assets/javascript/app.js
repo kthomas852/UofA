@@ -61,6 +61,7 @@ var setBoard = function(){
 };
 
 var nextQuestion = function(){
+    if(questionCount === game.questions.length){}else{
     setBoard();
     clearTimeout(TO);
     gameTime = 30;
@@ -75,7 +76,8 @@ var nextQuestion = function(){
     timer = setInterval(decrement, 1000);
     questionCount++;
     buttonWatch();
-    console.log('Out of question function');    
+    console.log('Out of question function');   
+}; 
 };
 
 var buttonWatch = function(){
@@ -83,15 +85,16 @@ $('#submit').click(function(){
     clearInterval(timer);
     console.log('submit pressed');
     if($('input[value=' + ansSelect.substring(1) + ']').is(':checked')){
-        $('#timer').text('ANSWER CORRECT!');
+        $('#timer').text('CORRECT!');
+        $('#timer').attr('style', 'color: green');
         gotRight++;
         console.log('correct answer selected');
     }else{
-        $('#timer').text('ANSWER INCORRECT SORRY');
+        $('#timer').text('WRONG!');
+        $('#timer').attr('style', 'color: red');
         console.log('correct answer NOT selected');
     };
     endCheck();
-        TO = setTimeout(nextQuestion, 3000);
 });
 };
 
@@ -114,13 +117,13 @@ var timesUp = function(){
 
 var endCheck = function(){
     if(questionCount === game.questions.length){
-        clearTimeout(TO);
+        TO = setTimeout(nextQuestion, 3000);
         clearInterval(timer);
         $('#tBlock').text("You've finished the quiz!");
         $('.questions').html('<h3 id="end"></h3>');
         $('#end').text("You answered " + gotRight + " of " + game.questions.length + " Correct!");
         $('#submit').text('Try Again');
-        TO = setTimeout(nextQuestion, 600000);
+        //TO = setTimeout(nextQuestion, 600000);
         $('#submit').unbind().click(function(){
             clearTimeout(TO);
             questionCount = 0;
@@ -128,7 +131,10 @@ var endCheck = function(){
             console.log('questionCount is '+ questionCount);
             nextQuestion();
         });
-    }
+    } else{
+        clearTimeout();
+        TO = setTimeout(nextQuestion, 3000);
+    };
     console.log('Keep going');
 };
 
