@@ -92,6 +92,7 @@ $('#submit').click(function(){
     }else{
         $('#timer').text('WRONG!');
         $('#timer').attr('style', 'color: red');
+        $(ansSelect).append('  <======');
         console.log('correct answer NOT selected');
     };
     endCheck();
