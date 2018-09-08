@@ -1,5 +1,5 @@
 body {
-    background-image: url("../images/background2.jpg");
+    /*background-image: url("../images/background2.jpg");*/
 }
 
 #cat-button{
@@ -10,4 +10,8 @@ body {
 
 .spacer{
     height:80px;
+}
+
+.gif{
+    margin: 20px;
 }
