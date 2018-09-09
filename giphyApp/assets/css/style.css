@@ -1,5 +1,11 @@
 body {
-    /*background-image: url("../images/background2.jpg");*/
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+label{
+    color:whitesmoke;
 }
 
 #cat-button{
@@ -13,5 +19,9 @@ body {
 }
 
 .gif{
-    margin: 20px;
+    margin: 10px;
+}
+
+.selector{
+    margin: 10px;
 }

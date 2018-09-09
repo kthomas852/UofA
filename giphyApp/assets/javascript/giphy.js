@@ -1,5 +1,6 @@
-var gifs = ["cats", "dogs"];
+var gifs = [];
 
+//renders the buttons to the page
 function renderButtons(){
   $('#button-area').html('');
   for (let i = 0; i < gifs.length; i++) {
@@ -11,6 +12,7 @@ function renderButtons(){
   }
   clickButtons();
   console.log(gifs);
+  return
 };
 
 //Creates Gif based on button type selected
@@ -27,43 +29,49 @@ $('.selector').click(function(){
     method: "GET"
   }).then(function(response) {
     console.log(response);
-    var imageUrl = response.data.image_original_url;
+    var imageUrl = response.data.images.original_still.url;
     var gifImage = $("<img>");
     gifImage.addClass('gif');
     gifImage.attr("src", imageUrl);
     gifImage.attr("alt", "Gif image");
+    gifImage.attr('data-animate', response.data.image_original_url);
+    gifImage.attr('data-still', imageUrl);
+    gifImage.attr('data-status', 'still');
     
     //
     $("#images").append(gifImage);
-    clickGifs();
+    gifClick();
   });
 });
 };
 
 //Activates image Gif based on status
-function clickGifs(){
-  $('.gif').click(function(){
-    let state = $(this).attr();
-    let animate = $(this).attr();
-    let still = $(this).attr();
-    if(state === 'still'){
-      state = 'animate';
-      $(this).attr(animate);
-    }else if(state === 'animate'){
-      state = 'still';
-      $(this).attr(still);
-    }
-  });
+function gifClick(){
+$('.gif').unbind().click(function(){
+  let state = $(this).attr('data-status');
+  let animate = $(this).attr('data-animate');
+  let still = $(this).attr('data-still');
+  console.log(state);
+  if(state === 'still'){
+    state = 'animate';
+    $(this).attr('data-status', state);
+    $(this).attr('src', animate);
+  }else if(state === 'animate'){
+    state = 'still';
+    $(this).attr('data-status', state);
+    $(this).attr('src', still);
+  }
+});
 };
 
 //Main listening events for buttons and input
 $('document').ready(function(){
   console.log('Ready for Action!');
-$('#add-gif').click(function(){
-  let gTemp = $('#gif-input').val().trim();
-  gifs.push(gTemp);
-  renderButtons();
-});
-
+  $('#add-gif').click(function(){
+    let gTemp = $('#gif-input').val().trim();
+    gifs.push(gTemp);
+    $('#gif-input').val('');
+    renderButtons();
+  });
 console.log('Done');
 });
