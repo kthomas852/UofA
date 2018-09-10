@@ -1,0 +1,20 @@
+.textHead{
+    text-align: center;
+    position: relative;
+    left: 30%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.headbox{
+    background-color: rgb(110, 40, 40);
+    color: whitesmoke;
+}
+
+.mainbox{
+    margin-top: 30px;
+}
+
+.textWhite{
+    color: whitesmoke;
+}

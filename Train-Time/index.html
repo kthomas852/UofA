@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="assets/javascript/app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Anytime is Train Time</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row headbox">
+            <div class="textHead">
+            <h1>Anytime is Train Time</h1>
+            <h5>Choo Choo. Chee Chee.</h5>
+            </div>
+        </div>
+            <div class="card mainbox">
+                <div class="card-header bg-primary">
+                    <h6 class="textWhite"><strong>Current Train Schedule</strong></h6>
+                </div>
+                <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody id="trainDisplay">
+                    <tr>
+                        <th scope="row">Catside</th>
+                        <th>Kikkersville</th>
+                        <th>30</th>
+                        <th>5:30</th>
+                        <th>10</th>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+            <div class="card mainbox">
+                <div class="card-header bg-primary">
+                    <h6 class="textWhite"><strong>Add Train</strong></h6>
+                </div>
+                <div class="card-body">
+            <form>
+                Train Name:<br><input type="text" class="form-control" name="tName" placeholder="...">
+                <br>
+                Destination:<br><input type="text" class="form-control" name="destination" placeholder="...">
+                <br>
+                First Train Time:<br><input type="text" class="form-control" name="startTime" placeholder="HH:mm military time">
+                <br>
+                Frequency (min):<br><input type="text" class="form-control" name="frequency" placeholder="minutes">
+            </form>
+            <br>
+            <button class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
