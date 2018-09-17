@@ -18,6 +18,7 @@
   var p1 = 0;
   var p2 = 0;
   var picture = '';
+  var noSelect = 'assets/images/noSelection.jpeg';
 
   //Function Library
   var checkPlayers = function(){
@@ -39,7 +40,6 @@
           $('#banner').text('...Game in Progress...');
           console.log('...Game in Progress...');
       };
-      console.log(me);
   };
 
   var compareGuess = function(){
@@ -48,54 +48,76 @@
     } else if(mem.player1Choice === 'paper' && mem.player2Choice === 'rock'){
         console.log('Player 1 Wins Round!');
         $('#banner').text('Round to Player 1');
+        rps.ref('/player1Choice').set('');
+        rps.ref('/player2Choice').set('');
         p1++;
         rps.ref('/player1Points').set(p1);
+        checkWin();
     } else if(mem.player1Choice === 'scissors' && mem.player2Choice === 'paper'){
         console.log('Player 1 Wins Round!');
         $('#banner').text('Round to Player 1');
+        rps.ref('/player1Choice').set('');
+        rps.ref('/player2Choice').set('');
         p1++;
         rps.ref('/player1Points').set(p1);
+        checkWin();
     } else if(mem.player1Choice === 'rock' && mem.player2Choice === 'scissors'){
         console.log('Player 1 Wins Round!');
         $('#banner').text('Round to Player 1');
+        rps.ref('/player1Choice').set('');
+        rps.ref('/player2Choice').set('');
         p1++;
         rps.ref('/player1Points').set(p1);
+        checkWin();
     } else if(mem.player1Choice === 'paper' && mem.player2Choice === 'scissors'){
         console.log('Player 2 Wins Round!');
         $('#banner').text('Round to Player 2');
+        rps.ref('/player1Choice').set('');
+        rps.ref('/player2Choice').set('');
         p2++;
         rps.ref('/player2Points').set(p2);
+        checkWin();
     } else if(mem.player1Choice === 'scissors' && mem.player2Choice === 'rock'){
         console.log('Player 2 Wins Round!');
         $('#banner').text('Round to Player 2');
+        rps.ref('/player1Choice').set('');
+        rps.ref('/player2Choice').set('');
         p2++;
         rps.ref('/player2Points').set(p2);
+        checkWin();
     } else if(mem.player1Choice === 'rock' && mem.player2Choice === 'paper'){
         console.log('Player 2 Wins Round!');
         $('#banner').text('Round to Player 2');
+        rps.ref('/player1Choice').set('');
+        rps.ref('/player2Choice').set('');
         p2++;
         rps.ref('/player2Points').set(p2);
+        checkWin();
     } else{
         console.log('Tie... Try Again...');
     };
-    checkWin();
   };
 
   var setMoveImage = function(){
-      if(playerMove === 'rock'){
+    if(mem.player1Choice === '' || mem.player2Choice === ''){
+        $('#banner').text('Opponent still making a decision');
+        $('#playerSpace1').attr('src', noSelect);
+        $('#playerSpace2').attr('src', noSelect);
+      } else {
+          if(playerMove === 'rock'){
         picture = 'assets/images/rock.png';
       } else if(playerMove === 'paper'){
         picture = 'assets/images/paper.png';
       } else if(playerMove === 'scissors'){
         picture = 'assets/images/scissors.png';
       };
-      $('.battle').attr('style', 'visibility: visible');
       if(me === 'player1'){
-          $('#playerspace1').attr('src', picture);
+          $('#playerSpace1').attr('src', picture);
       } else if(me === 'player2'){
-        $('#playerspace2').attr('src', picture);
+        $('#playerSpace2').attr('src', picture);
       }
-  }
+    };
+  };
 
   var checkWin = function(){
     if(mem.player1Points === 3){
@@ -118,12 +140,13 @@
   $('#userBtn').click(function(){
       userName = $('#userName').val();
       rps.ref('/random').set('here');
-      $('.beginning').attr('style', 'visibility: hidden');
       $('.middle').attr('style', 'visibility: visible');
+      $('.beginning').html('');
       checkPlayers();
   });
 //Move while in game
   $('.move').click(function(){
+    $('.battle').attr('style', 'visibility: visible');
       playerMove = $(this).attr('name');
       console.log(playerMove);
       if(me === 'player1'){
@@ -131,12 +154,12 @@
       }else if(me === 'player2'){
           rps.ref('/player2Choice').set(playerMove);
       };
-      setMoveImage();
-      compareGuess();
-  });
-//Firebase changes listener
-console.log('listener');
-  rps.ref().on('value', function(snapshot){
-      mem = snapshot.val();
-      console.log(mem);
+    });
+    //Firebase changes listener
+    console.log('listener');
+    rps.ref().on('value', function(snapshot){
+        mem = snapshot.val();
+        console.log(mem);
+        setMoveImage();
+        compareGuess();
   });
