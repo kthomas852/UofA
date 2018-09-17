@@ -1,0 +1,34 @@
+.beginning{
+    visibility: visible;
+}
+.middle{
+    align-content: center;
+    text-align: center;
+    visibility: hidden;
+}
+
+.selector-block{
+    padding: 20px;
+    border: thick black solid;
+}
+
+.move{
+    height: 80px;
+    width: 80px;
+}
+
+.poster{
+    height: 80%;
+    width: 40%;
+}
+
+.battle{
+    height:200px;
+    width:200px;
+    margin: 20px;
+    visibility: hidden;
+}
+
+body{
+    background-color: yellow;
+}
