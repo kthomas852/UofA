@@ -52,7 +52,9 @@
         rps.ref('/player2Choice').set('');
         p1++;
         rps.ref('/player1Points').set(p1);
-        checkWin();
+        setTimeout(() => {
+            checkWin();
+        }, 3000);
     } else if(mem.player1Choice === 'scissors' && mem.player2Choice === 'paper'){
         console.log('Player 1 Wins Round!');
         $('#banner').text('Round to Player 1');
@@ -60,7 +62,9 @@
         rps.ref('/player2Choice').set('');
         p1++;
         rps.ref('/player1Points').set(p1);
-        checkWin();
+        setTimeout(() => {
+            checkWin();
+        }, 3000);
     } else if(mem.player1Choice === 'rock' && mem.player2Choice === 'scissors'){
         console.log('Player 1 Wins Round!');
         $('#banner').text('Round to Player 1');
@@ -68,7 +72,9 @@
         rps.ref('/player2Choice').set('');
         p1++;
         rps.ref('/player1Points').set(p1);
-        checkWin();
+        setTimeout(() => {
+            checkWin();
+        }, 3000);
     } else if(mem.player1Choice === 'paper' && mem.player2Choice === 'scissors'){
         console.log('Player 2 Wins Round!');
         $('#banner').text('Round to Player 2');
@@ -76,7 +82,9 @@
         rps.ref('/player2Choice').set('');
         p2++;
         rps.ref('/player2Points').set(p2);
-        checkWin();
+        setTimeout(() => {
+            checkWin();
+        }, 3000);
     } else if(mem.player1Choice === 'scissors' && mem.player2Choice === 'rock'){
         console.log('Player 2 Wins Round!');
         $('#banner').text('Round to Player 2');
@@ -84,7 +92,9 @@
         rps.ref('/player2Choice').set('');
         p2++;
         rps.ref('/player2Points').set(p2);
-        checkWin();
+        setTimeout(() => {
+            checkWin();
+        }, 3000);
     } else if(mem.player1Choice === 'rock' && mem.player2Choice === 'paper'){
         console.log('Player 2 Wins Round!');
         $('#banner').text('Round to Player 2');
@@ -92,7 +102,9 @@
         rps.ref('/player2Choice').set('');
         p2++;
         rps.ref('/player2Points').set(p2);
-        checkWin();
+        setTimeout(() => {
+            checkWin();
+        }, 3000);
     } else{
         console.log('Tie... Try Again...');
     };
@@ -117,16 +129,17 @@
         $('#playerSpace2').attr('src', picture);
       }
     };
+    compareGuess();
   };
 
   var checkWin = function(){
     if(mem.player1Points === 3){
         console.log('Player 1 Wins!!!!');
-        $('#banner').text('Player 1 Wins!!!!');
+        $('.container').html('Player 1 Wins!!!!');
         rps.ref('/win').set(true);
     } else if(mem.player2Points === 3){
         console.log('Player 2 Wins!!!!');
-        $('#banner').text('Player 2 Wins!!!!');
+        $('.container').html('Player 2 Wins!!!!');
         rps.ref('/win').set(true);
     } else{
         console.log('Next Round');
@@ -156,10 +169,10 @@
       };
     });
     //Firebase changes listener
-    console.log('listener');
     rps.ref().on('value', function(snapshot){
         mem = snapshot.val();
         console.log(mem);
-        setMoveImage();
-        compareGuess();
+        setTimeout(() => {
+            setMoveImage();
+        }, 2000);
   });
