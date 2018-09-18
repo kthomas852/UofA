@@ -29,6 +29,10 @@
     visibility: hidden;
 }
 
+.spacer{
+    height: 40px;
+}
+
 body{
     background-color: yellow;
 }
