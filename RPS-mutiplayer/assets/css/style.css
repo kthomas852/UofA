@@ -10,6 +10,7 @@
 .selector-block{
     padding: 20px;
     border: thick black solid;
+    border-radius: 15px;
 }
 
 .move{
@@ -20,6 +21,25 @@
 .poster{
     height: 80%;
     width: 40%;
+}
+
+.chat{
+    border: thick orange solid;
+    background-color: whitesmoke;
+    height:200px;
+    margin: 10px;
+    border-radius: 15px;
+}
+
+.score{
+    height: 200px;
+    border: thick orange solid;
+    margin: 20px;
+    border-radius: 15px;
+}
+
+.scores{
+    position: relative;
 }
 
 .battle{
@@ -35,4 +55,8 @@
 
 body{
     background-color: yellow;
+}
+
+strong{
+    color: green;
 }

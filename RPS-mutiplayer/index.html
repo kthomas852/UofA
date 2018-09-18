@@ -25,20 +25,34 @@
         <div class="row beginning">
             <img class="poster mx-auto d-block" style="margin: 20px" src="assets/images/RPSLogo.jpg">
         </div>
-        <h3 class="text-center middle" id="banner">Here We Go!</h3>
-        <div class="row middle mx-auto d-block">
+        <h3 class="text-center" id="banner">Here We Go!</h3>
+        <div class="row middle">
+        <div class="col-md-9 middle mx-auto d-block">
             <div class="row">
                 <div class="col-md-6"><img src="assets/images/rockloss.png" class="battle" id="playerSpace1"></div>
                 <div class="col-md-6"><img src="assets/images/paper.png" class="battle" id="playerSpace2"></div>
             </div>
-        </div>
-        <div class="row middle mx-auto d-block">
+        <div class="row mx-auto d-block">
             <h3>Make your Selection</h3>
             <div id="selector" class="row selector-block">
             <div class="col-md-4"><img src="assets/images/rock.png" class="move" name="rock"> </div>
             <div class="col-md-4"><img src="assets/images/paper.png" class="move" name="paper"> </div>
             <div class="col-md-4"><img src="assets/images/scissors.png" class="move" name="scissors"> </div>
             </div>
+        </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row score">
+                <h3 class="scores" id="wins">:0</h3>
+                <br>
+                <br>
+                <h3 class="scores" id="loss">:0</h3>
+            </div>
+            <div class="row chat">
+                
+            </div>
+            <input type="text" id="chatter"> <button class="btn btn-sm btn-outline-primary">Say</button>
+        </div>
         </div>
     </div>
     <script src="assets/javascript/app.js"></script>

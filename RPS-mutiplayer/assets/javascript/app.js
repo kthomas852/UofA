@@ -192,6 +192,16 @@
         console.log(mem);
         compareGuess();;
     });
+
+    $('.btn-sm').click(function(){
+        let post = $('#chatter').val();
+        let chatPlay = $('<strong>').text(me + ':');
+        let chatter = $('<p>').text(post);
+        let contain = $('<span>');
+        $('.chat').append(contain);
+        $('.chat').append(chatPlay);
+        $('.chat').append(chatter);
+    })
     //Reset Listener
     /*$('#reset').click(function(){
         console.log('Reset');
