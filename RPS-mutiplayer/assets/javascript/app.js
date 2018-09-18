@@ -142,12 +142,12 @@
         console.log('Player 1 Wins!!!!');
         $('#banner').text(mem.player1 + ' Wins!!!!');
         rps.ref('/win').set(true);
-        resetOption();
+        //resetOption();
     } else if(mem.player2Points === 3){
         console.log('Player 2 Wins!!!!');
         $('#banner').text(mem.player2 + ' Wins!!!!');
         rps.ref('/win').set(true);
-        resetOption();
+        //resetOption();
     } else{
         console.log('Next Round');
         setTimeout(() => {
@@ -186,14 +186,14 @@
           rps.ref('/player2Choice').set(playerMove);
       };
     });
-//Reset Listener
-$('#reset').click(function(){
-    console.log('Reset');
-    location.reload();
-});
-//Firebase changes listener
+    //Firebase changes listener
     rps.ref().on('value', function(snapshot){
         mem = snapshot.val();
         console.log(mem);
         compareGuess();;
-  });
+    });
+    //Reset Listener
+    /*$('#reset').click(function(){
+        console.log('Reset');
+        location.reload();
+    });*/
