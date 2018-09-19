@@ -14,6 +14,7 @@
   var userName = '';
   var playerMove = '';
   var me = '';
+  var chatMe = '';
   var mem = '';
   var p1 = 0;
   var p2 = 0;
@@ -31,7 +32,9 @@
               player2Choice: '',
               player1Points: p1,
               player2Points: p2,
-              win: false
+              win: false,
+              chatPlayer1: ['Player1 Ready'],
+              chatPlayer2: ['Player2 Ready']
           });
           me = 'player1';
       } else if(mem.player2 === ''){
@@ -137,6 +140,17 @@
     $('#playerSpace2').attr('src', picture2);
   };
 
+  var chatUpdate = function(array, player){
+    for(i=0; array.length < i; i++){
+    let chatPlay = $('<strong>').text(player + ':');
+    let chatter = $('<p>').text(array[i]);
+    let contain = $('<span>');
+    $('.chat').append(contain);
+    $('.chat').append(chatPlay);
+    $('.chat').append(chatter);
+    }
+  };
+
   var checkWin = function(){
     if(mem.player1Points === 3){
         console.log('Player 1 Wins!!!!');
@@ -190,18 +204,29 @@
     rps.ref().on('value', function(snapshot){
         mem = snapshot.val();
         console.log(mem);
-        compareGuess();;
+        compareGuess();
+        chatUpdate(mem.chatPlayer1, mem.player1);
+        chatUpdate(mem.chatPlayer2, mem.player2);
     });
 
     $('.btn-sm').click(function(){
         let post = $('#chatter').val();
-        let chatPlay = $('<strong>').text(me + ':');
-        let chatter = $('<p>').text(post);
-        let contain = $('<span>');
-        $('.chat').append(contain);
-        $('.chat').append(chatPlay);
-        $('.chat').append(chatter);
-    })
+        let chatArray = [];
+        if(userName === mem.player1){
+            chatArray = mem.chatPlayer1;
+            console.log(chatArray);
+            chatArray.push(post);
+            console.log(post);
+            rps.ref('/chatPlayer1').set(chatArray);
+        }else if(userName === mem.player2){
+            chatArray = mem.chatPlayer2;
+            console.log(chatArray);
+            chatArray.push(post);
+            console.log(post);
+            rps.ref('/chatPlayer2').set(chatArray);
+        }
+        $('#chatter').val('');
+    });
     //Reset Listener
     /*$('#reset').click(function(){
         console.log('Reset');
