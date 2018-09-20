@@ -118,6 +118,12 @@
         }, 2000);
     } else{
         console.log('Tie... Try Again...');
+        $('#banner').text('That Choice was a tie, try again');
+        rps.ref('/player1Choice').set('');
+        rps.ref('/player2Choice').set('');
+        setTimeout(() => {
+            checkWin();
+        }, 2000);
     };
   };
 
@@ -155,10 +161,10 @@
 
   var scoreUpdate = function(){
     if(userName === mem.player1){
-        $('#win').text('Wins: ' + mem.player1Points);
+        $('#wins').text('Wins: ' + mem.player1Points);
         $('#loss').text('Losses: ' + mem.player2Points);
     }else if(userName === mem.player2){
-        $('#win').text('Wins: ' + mem.player2Points);
+        $('#wins').text('Wins: ' + mem.player2Points);
         $('#loss').text('Losses: ' + mem.player1Points);
     }
   };
