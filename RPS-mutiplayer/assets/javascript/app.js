@@ -141,13 +141,13 @@
   };
 
   var chatUpdate = function(array, player){
-    for(i=0; array.length < i; i++){
+    for(i=0; array.length > i; i++){
     let chatPlay = $('<strong>').text(player + ':');
     let chatter = $('<p>').text(array[i]);
-    let contain = $('<span>');
-    $('.chat').append(contain);
-    $('.chat').append(chatPlay);
-    $('.chat').append(chatter);
+    let contain = $('<div class="container">');
+    $('#chat').append(contain);
+    $('#chat').append(chatPlay);
+    $('#chat').append(chatter);
     }
   };
 

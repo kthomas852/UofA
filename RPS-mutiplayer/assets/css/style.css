@@ -38,8 +38,8 @@
     border-radius: 15px;
 }
 
-.scores{
-    position: relative;
+.indScore{
+    margin-top: 20px;
 }
 
 .battle{
