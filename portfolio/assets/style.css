@@ -8,15 +8,46 @@
     padding-left: 9%;
 }
 
-.header {
+body {
+    background-image: url("images/blue.jpg");
+    background-size: cover;
+}
+
+h4{
+    color: whitesmoke;
+    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+    font-weight: bold;
+}
+
+.thumb{
+    height: 380px;
+}
+
+/*.backer{
+    border-radius: 10px;
+    background-color: rgb(237, 237, 248);
+}*/
+
+.spacer{
+    height: 40px;
+}
+
+.foot {
+    height: 10%;
+    color: whitesmoke;
+    background-color: #777777;
+    width: 100%;
+    border-top: 3px solid #4aaaa5;
+    position: fixed;
+    bottom: 0px;
+    z-index: 4;
+}
+
+/*.header {
     background-color: #4aaaa5;
     color: white;
     padding: 10px;
     font-weight: bold;
-}
-
-body {
-    background-image: url("images/paper.jpg");
 }
 
 c {
@@ -92,4 +123,4 @@ f {
     right: 15px;
     position: relative;
     text-justify: center;
-}
+}*/
