@@ -1,0 +1,95 @@
+.navbar {
+    padding: 0px;
+    border-bottom: 3px solid lightgrey;
+}
+
+.navbar-brand {
+    padding: 0px;
+    padding-left: 9%;
+}
+
+.header {
+    background-color: #4aaaa5;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+body {
+    background-image: url("images/paper.jpg");
+}
+
+c {
+    font-size: 18px;
+    color: #4aaaa5;
+    font-weight: bold;
+    text-align: left;
+    padding: 0px;
+}
+
+f {
+    text-align: center;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.thumb {
+    width: 150px;
+    height: 150px;
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    margin-right: 20px;
+}
+
+.main {
+    margin: 30px;
+    padding: 15px;
+    border: thin solid lightgrey;
+    background-color: whitesmoke;
+}
+
+.about {
+    padding: 10px;
+    border-bottom: thin solid lightgrey;
+}
+
+.foot {
+    height: 10%;
+    color: whitesmoke;
+    background-color: #777777;
+    width: 100%;
+    border-top: 3px solid #4aaaa5;
+    position: fixed;
+    bottom: 0px;
+    z-index: 4;
+}
+
+#message {
+    height: 80px;
+}
+
+.port {
+    margin-top: 20px;
+    background-color: grey;
+}
+
+.portimg {
+    height: 85%;
+    width: 85%;
+    top: -15px;
+    left: 5px;
+    position: relative;
+}
+
+.banner {
+    width: 115%;
+    height: 20%;
+    background-color: #4aaaa5;
+    color: whitesmoke;
+    z-index: 3;
+    top: 65%;
+    right: 15px;
+    position: relative;
+    text-justify: center;
+}

@@ -1,0 +1,12 @@
+{
+  "name": "liri",
+  "version": "1.0.0",
+  "description": "This Software accepts user requests through the node.js terminal and attempts to carry out  the commands to the best of it's abiliities.  The app uses the Spotify, OMDB and Bands In Town APIs to handle the user's requests for informaiton.",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
