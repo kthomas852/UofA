@@ -1,0 +1,93 @@
+body {
+    background-image: url("../images/background.png")
+}
+
+.max {
+    width: 100%;
+}
+#res {
+    display: none;
+    margin-top: 10px;
+}
+.b {
+    border: 1px solid black;
+}
+.c {
+    text-align: center;
+}
+.tbkgnd {
+    background: rgb(223, 223, 223);
+    border: 1px solid black;
+}
+.big {
+    font-size: 20px;
+}
+.tbtn {
+    height: 100%;
+    width: 100%;
+}
+#mainPage {
+    display: none;
+}
+#eventDisplay {
+    display: none;
+}
+#foodDisplay {
+    display: none;
+}
+#headline {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin: 20px;
+
+    background-color: black;
+    border: 5px solid white;
+    border-radius: 20px;
+}
+#headline h1 {
+    color: white;
+    text-align: center;
+    font-size: 90px;
+}
+
+#food {
+    display: none;
+}
+
+.button {
+    width: 100%;
+    color: white;
+    padding: 5px;
+    margin: 0px;
+    text-align: center;
+    font-size: 50px;
+    text-decoration: underline;
+    background-color: grey;
+    border: 5px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.button:hover {
+    background-color: darkgrey;
+}
+
+/* .sign-in-section {
+  display: none;
+}
+.sign-up-section {
+  display: none;
+} */
+.form-control {
+    width: 100%;
+}
+.save-btn {
+  display: none !important;
+}
+
+/*#event {
+/*    color: white;
+/*}
+/*#location {
+/*    color: white;
+/*}
