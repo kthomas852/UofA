@@ -1,53 +1,65 @@
 <!DOCTYPE html>
-<!--This is the index page-->
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="assets/style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bootstrap Portfolio</title>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <a class="navbar-brand" href="index.html"><div class="header">Kyle Thomas</div></a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                      <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="index.html">About <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="html/portfolio.html">Portfolio</a>
-                        <a class="nav-item nav-link" href="html/contact.html">Contact</a>
-                      </div>
-                    </div>
-                  </nav>
-</head>
-<body>
-    <div class="containerfluid">
-        <div class="row spacer"></div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-4">
-                <img class="thumb" src="assets/images/me.gif" style="float: left;">
-            </div>
-            <div class="col-md-6 backer">
-                 <h4>Starting from an early age I have been captivated with technology and 
-                    understanding the interworking's of the many complicated machines around me.  Out of 
-                    High School I had a Strong interest in digital design.  After dabbling 
-                    in graphic arts I graduated with a Bachelor's degree focused in Geography 
-                    and GIS from The University of New Mexico. 
-                    My first professional experience working the engineering space was as 
-                    an electrical engineering tech at Bladewerx, a research and development 
-                    company that specialized in radiation detection and spectroscopy. 
-                    The need to be in the dot com sphere and a love for local businesses 
-                    brought me to my current position at Yelp. My goal is to further my 
-                    development and launch my career anew, working
-                    as a fullstack developer.
-                 </h4>
-            </div>
-            <div class="col-md-1"></div>
-            </div>
+    <title>Kyle Thomas - Welcomes you!</title>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html"><div class="header">Kyle Thomas</div></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="html/about.html">About <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="html/portfolio.html">Portfolio</a>
+          <a class="nav-item nav-link" href="html/contact.html">Contact</a>
         </div>
+      </div>
+    </nav>
+  </head>
+<body>
+  <div class="container spacer">
+  </div>
+  <div class="spacer text-center"><h4>Selected Website Examples</h4></div>
+  <div class="container carry">
+  <div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+      <li data-target="#demo" data-slide-to="0" class="active"></li>
+      <li data-target="#demo" data-slide-to="1"></li>
+      <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+    
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <!--  <img src="" alt="Los Angeles" width="1100" height="500">
+      </div>-->
+      <div class="carousel-item active">
+        <a href="https://kthomas852.github.io/UofA/EventBites/" target="_blank"><img src="assets/images/EventBites.png" alt="Los Angeles" width="1100" height="500"></a>
+      </div>
+      <div class="carousel-item">
+        <a href="https://kthomas852.github.io/UofA/RPS-mutiplayer/" target="_blank"><img src="assets/images/RPS.png" alt="Chicago" width="1100" height="500"></a>
+      </div>
+      <div class="carousel-item">
+        <a href="http://www.betterbikeabq.com/" target="_blank"><img src="assets/images/BetterBike.png" alt="New York" width="1100" height="500"></a>
+      </div>
     </div>
+    
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </div>
+  </div>
 </body>
 </html>
