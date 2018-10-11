@@ -14,13 +14,16 @@ var userIn = process.argv.slice(3).join('+');;
 switch (rawIn[2]) {
     case "concert-this":
         var queryUrl = bitAPI + userIn + "/events?app_id=codingbootcamp";
-        console.log(queryUrl);
+        //console.log(queryUrl);
 
         request(queryUrl, function (err, response, body) {
             if (!err && response.statusCode === 200) {
-                console.log(JSON.parse(body)[0].venue.name);
-                console.log("Country: "+JSON.parse(body)[0].venue.country+"  City: "+JSON.parse(body)[0].venue.city);
-                console.log("Date of Event: "+JSON.parse(body)[0].datetime);
+                console.log("\n--------------------------------------------\n"+
+                            "\nBand: "+process.argv.slice(3)+
+                            "\nVenue: "+JSON.parse(body)[0].venue.name+
+                            "\nCountry: "+JSON.parse(body)[0].venue.country+"  City: "+JSON.parse(body)[0].venue.city+
+                            "\nDate of Event: "+JSON.parse(body)[0].datetime+
+                            "\n--------------------------------------------\n");
                 //Rock a liitle moment JS to kick back a legit date/time
             }else{
                 console.log("ERROR Hagen: " + response.statusCode);
@@ -32,11 +35,12 @@ switch (rawIn[2]) {
             if (err) {
                 return console.log('Error occurred: ' + err);
             }
-
-            console.log("\nSong Title : " + data.tracks.items[0].name);
-            console.log("\nArtist : " + data.tracks.items[0].artists[0].name);
-            console.log("\nAlbum : " + data.tracks.items[0].album.name);
-            console.log("\nCheck it out on Spotify" + "\n" + data.tracks.items[0].album.external_urls.spotify);
+            console.log("\n--------------------------------------------\n"+
+                        "\nSong Title : " + data.tracks.items[0].name+
+                        "\nArtist : " + data.tracks.items[0].artists[0].name+
+                        "\nAlbum : " + data.tracks.items[0].album.name+
+                        "\nCheck it out on Spotify" + "\n" + data.tracks.items[0].album.external_urls.spotify+
+                        "\n--------------------------------------------\n");
         });
         break;
     case "movie-this":
@@ -46,14 +50,16 @@ switch (rawIn[2]) {
         request(queryUrl, function (err, response, body) {
             if (!err && response.statusCode === 200) {
                 let res = JSON.parse(body);
-                console.log("Title: "+res.Title+"\n"+
+                console.log("\n--------------------------------------------\n"+
+                            "Title: "+res.Title+"\n"+
                             "Year: "+res.Year+"\n"+
                             "Rated: "+res.Rated+"\n"+
                             "Tomato Rating: "+res.Ratings[1].Value+"\n"+
                             "Country of Production: "+res.Country+"\n"+
                             "Language: "+res.Language+"\n"+
                             "Plot: "+res.Plot+"\n"+
-                            "Actors: "+res.Actors);
+                            "Actors: "+res.Actors+
+                            "\n--------------------------------------------\n");
             }else{
                 console.log("ERROR Hagen: " + response.statusCode);
             }
@@ -69,10 +75,12 @@ switch (rawIn[2]) {
                     if (err) {
                         return console.log('Error occurred: ' + err);
                     }
-                    console.log("\nSong Title : " + data.tracks.items[0].name);
-                    console.log("\nArtist : " + data.tracks.items[0].artists[0].name);
-                    console.log("\nAlbum : " + data.tracks.items[0].album.name);
-                    console.log("\nCheck it out on Spotify" + "\n" + data.tracks.items[0].album.external_urls.spotify);
+                    console.log("\n--------------------------------------------\n"+
+                                "\nSong Title : " + data.tracks.items[0].name+
+                                "\nArtist : " + data.tracks.items[0].artists[0].name+
+                                "\nAlbum : " + data.tracks.items[0].album.name+
+                                "\nCheck it out on Spotify" + "\n" + data.tracks.items[0].album.external_urls.spotify+
+                                "\n--------------------------------------------\n");
                 });
             };
         })
