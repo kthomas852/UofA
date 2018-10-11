@@ -54,6 +54,26 @@ h4{
   width: 70%;
 }
 
+.portimg {
+    height: 85%;
+    width: 85%;
+    top: -15px;
+    left: 5px;
+    position: relative;
+}
+
+.banner {
+    width: 90%;
+    height: 20%;
+    background-color: #4aaaa5;
+    color: whitesmoke;
+    z-index: 3;
+    top: 80%;
+    
+    position: relative;
+    text-align: center;
+}
+
 /*.header {
     background-color: #4aaaa5;
     color: white;
@@ -116,22 +136,4 @@ f {
     background-color: grey;
 }
 
-.portimg {
-    height: 85%;
-    width: 85%;
-    top: -15px;
-    left: 5px;
-    position: relative;
-}
-
-.banner {
-    width: 115%;
-    height: 20%;
-    background-color: #4aaaa5;
-    color: whitesmoke;
-    z-index: 3;
-    top: 65%;
-    right: 15px;
-    position: relative;
-    text-justify: center;
-}*/
+*/
