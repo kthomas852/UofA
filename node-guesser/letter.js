@@ -18,8 +18,9 @@ function Letter(letter){
         }else if(guess === this.correct){
             this.showing = guess;
             this.right = true;
+            return true
         }else{
-            return 'wrong';
+            return false;
         }
     };
 };
