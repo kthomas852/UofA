@@ -95,7 +95,7 @@ var addInven = function(){
             let updated = 0;
             connection.query('SELECT stock_quantity FROM products', function(err, sto){
                 if(err) throw err;
-                updated = sto[index] + adder;
+                updated = parseInt(sto[index]) + parseInt(adder);
             })
             connection.query('UPDATE products SET ? WHERE ?', [
                 {stock_quantity: updated},
