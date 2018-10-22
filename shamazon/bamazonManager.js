@@ -1,5 +1,6 @@
 var mysql = require('mysql');
 var inquirer = require('inquirer');
+var stock = '';
 
 var connection = mysql.createConnection({
     host: 'localhost',
@@ -12,11 +13,12 @@ var connection = mysql.createConnection({
 var products = function(){
     connection.connect();
 
-    connection.query('SELECT * FROM products', function(err, results, fields){
+    connection.query('SELECT * FROM products', function(err, results){
         if(err) throw err;
+        stock = results;
+        let prods = [];
         for(i=0; i<results.length; i++){
-            var prods = [];
-            prods.push(results[i].products);
+            prods.push(results[i].item_id+' '+results[i].product_name);
         }
         inquirer.prompt([
             {
@@ -25,7 +27,8 @@ var products = function(){
                 choices: prods,
                 name: 'needs'
             }]).then(function(res){
-                console.log(res.needs);
+                console.log(parseInt(res[0]));
+                console.log(stock);
             });
     });
 
@@ -33,7 +36,18 @@ var products = function(){
 };
 
 var lowInven = function(){
-
+    connection.connect();
+    connection.query(`SELECT * FROM products`, function(err, res){
+        if(err) throw err;
+        for(i=0; i<res.length; i++){
+            if(res[i].stock_quantity < 3){
+                console.log(`ID# ${res[i].item_id}    item: ${res[i].product_name}     Stock available: ${res[i].stock_quantity}`)
+            }
+        }
+        setTimeout(() => {
+            connection.end(manager);
+        }, 2000);
+    });
 };
 
 var addInven = function(){
@@ -68,15 +82,17 @@ var addProduct = function(){
                 if(error) throw error;
                 //console.log(res.dis, " has been added");
             })
-            connection.end();
         });
 };
 
 //Inquirer prompts for Shamazon
+function manager(){
 inquirer.prompt([
     {
         type: 'list',
-        message: 'Welcome to Shamazon!',
+        message: `          Welcome to Shamazon!
+=======================================================
+`,
         choices: ['View Products for Sale', 'View Low Inventory', 'Add to Inventory', 'Add New Product'],
         name: 'menu'
     },
@@ -96,6 +112,9 @@ inquirer.prompt([
             break;
     }
 })
+}
+
+manager();
 
 
 // connection.connect();

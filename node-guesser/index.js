@@ -48,7 +48,7 @@ process.stdin.on('keypress', function(ch, key){
     };
     }
     playWord.action();
-    winCondition();
+    //winCondition();
 });
 
 process.stdin.setRawMode(true);
