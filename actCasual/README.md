@@ -6,7 +6,7 @@ The goal of this app is to connect like minds and like personalities, whether it
 
 ### The Algorithm
 
-* Iputs:
+* Inputs:
     * Interested In (Male/Female/both/other)
     * Perfered Age Range
     * Personal Activity Level
