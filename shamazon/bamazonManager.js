@@ -29,11 +29,11 @@ var products = function(){
             }]).then(function(res){
                 let index = parseInt(res.needs[0]);
                 console.log(`
-ID #         ${stock[index].item_id}
-Product:     ${stock[index].product_name}
-Department:  ${stock[index].department_name}
-Price:      $${stock[index].price}
-In-Stock:    ${stock[index].stock_quantity}`);
+ID #         ${stock[index - 1].item_id}
+Product:     ${stock[index - 1].product_name}
+Department:  ${stock[index - 1].department_name}
+Price:      $${stock[index - 1].price}
+In-Stock:    ${stock[index - 1].stock_quantity}`);
             });
     setTimeout(() => {
         inquirer.prompt([
@@ -43,10 +43,12 @@ In-Stock:    ${stock[index].stock_quantity}`);
                 name: 'con'
             }
         ]).then(function(res){
-            if(res){
+            if(res.con){
                 products();
             }else{
-                manager();
+                setTimeout(() => {
+                    manager();
+                }, 200);
             }
         });
     }, 2000);
@@ -92,11 +94,10 @@ var addInven = function(){
         }]).then(function(res){
             let index = res.needs[0];
             let adder = res.num;
-            let updated = 0;
-            connection.query('SELECT stock_quantity FROM products', function(err, sto){
-                if(err) throw err;
-                updated = parseInt(sto[index]) + parseInt(adder);
-            })
+            let updated = parseInt(stock[index - 1].stock_quantity) + parseInt(adder);
+            // console.log(stock[index -1].stock_quantity);
+            // console.log(adder);
+            // console.log(updated);
             connection.query('UPDATE products SET ? WHERE ?', [
                 {stock_quantity: updated},
                 {item_id: index},
@@ -109,12 +110,20 @@ var addInven = function(){
                         name: 'ans'
                     }
                 ]).then(function(res){
-                    if(res){
+                    if(res.ans){
+                        connection.query('SELECT * FROM products', function(err, sto){
+                            if(err) throw err;
+                            stock = sto;
+                        });
                         setTimeout(() => {
                             console.log('Updates made, be ready to choose your next product for update...')
                             addInven();
                         }, 2000);
                     }else{
+                        connection.query('SELECT * FROM products', function(err, sto){
+                            if(err) throw err;
+                            stock = sto;
+                        });
                         console.log('Thank you for updating!');
                         setTimeout(() => {
                             manager();
@@ -149,9 +158,12 @@ var addProduct = function(){
                 name: 'quant'
             }
         ]).then(function(res){
-            connection.query('INSERT INTO products (product_name, department_name, price, stock_quantity) VALUE (',res.dis,', ',res.cat,', ',res.pri,', ',res.quant,')', function(error, results, field){
+            connection.query('INSERT INTO products (product_name, department_name, price, stock_quantity) VALUE ("'+res.dis+'", "'+res.cat+'", "'+res.pri+'", "'+res.quant+'")', function(error, results, field){
                 if(error) throw error;
-                console.log(res.dis, " has been added");
+                console.log(res.dis, " has been added, but may take a few minutes to update in the system");
+                setTimeout(() => {
+                    manager();
+                }, 2000);
             })
         });
 };

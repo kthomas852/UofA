@@ -25,8 +25,4 @@ VALUE ("fake flowers", "in trouble", 30.00, 7);
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUE ("assorted chocolates", "in trouble", 24.00, 9);
 INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUE ("silver forks 8pc", "kitchen & bath", 14.00, 3);
-INSERT INTO products (product_name, department_name, price, stock_quantity)
-VALUE ("plunger", "kitchen & bath", 8.00, 5);
-INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUE ("bicycle", "sports", 400.00, 2);
