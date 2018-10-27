@@ -2,7 +2,7 @@
 
 ### OVERVIEW
 
-This site allows you to buy and sell items.  Item information is stored in a MySQL database and accessed by three operational JavaScript pages; `bamazonCustomer.js`, `bamazonManager.js` and `bamazonAdmin.js`.  These pages require an NPM install before operation.  
+This site allows you to buy and sell items.  Item information is stored in a MySQL database and accessed by three operational JavaScript pages; `bamazonCustomer.js`, `bamazonManager.js` and `bamazonSupervisor.js`.  These pages require an NPM install before operation.  
 
 ### Function Details
 
@@ -15,7 +15,7 @@ This page allows a customer to access the database and see what products are ava
 This page allows a manager to see details of products available, see stock that is marked as LOW, replenish low stock and add new products.  These prompts are also validated and will reject answers that do not make sense fot the prompt.
 
 
-* `bamazonAdmin`
+* `bamazonSupervisor`
 This page allows for updates to the database such as adding departments to the list available for new products.
 
 

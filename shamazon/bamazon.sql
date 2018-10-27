@@ -26,3 +26,18 @@ INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUE ("assorted chocolates", "in trouble", 24.00, 9);
 INSERT INTO products (product_name, department_name, price, stock_quantity)
 VALUE ("bicycle", "sports", 400.00, 2);
+
+USE bamazon;
+CREATE TABLE departments(
+    department_id INT NOT NULL AUTO_INCREMENT,
+    department_name VARCHAR(50) NOT NULL,
+    over_head_costs DECIMAL(10,2) NULL,
+    product_sales DECIMAL(10,2) NULL,
+    total_profit DECIMAL(10,2) NULL,
+    PRIMARY KEY (department_id)
+);
+
+INSERT INTO departments (department_name, over_head_cost, product_sales, total_profit)
+VALUE ("Electronics", 10000, 20000, 10000);
+INSERT INTO departments (department_name, over_head_cost, product_sales, total_profit)
+VALUE ("Clothing", 60000, 100000, 40000);
