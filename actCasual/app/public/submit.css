@@ -1,0 +1,139 @@
+/* colors*/
+body{
+    background-color: #DCDCDC;
+}
+.aWhite{
+    background-color: #DCDCDC;
+}
+
+.lGray{
+    background-color: #D3D3D3;
+}
+
+.mGray{
+    background-color: #A9A9A9;
+}
+
+.dGray{
+    background-color: #696969;
+}
+
+/* Styles */
+.mega{
+    position: relative;
+    left: 30%;
+    font-family: '';
+    font-size: 50px;
+}
+
+/* shapes */
+.spacer{
+    height:50px;
+}
+
+.pillars{
+    width: 100%;
+}
+
+.educate{
+    float: none !important;
+    margin: 0 auto !important;
+}
+
+.motivate{
+    float: none !important;
+    margin: 0 auto !important;
+}
+
+.celebrate{
+    float: none !important;
+    margin: 0 auto !important;
+}
+
+/*.feed{
+    background-color: lightgray;
+    width: 100%;
+    margin-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom:10px;
+    border-radius: 10px;
+}*/
+
+.highlight{
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    margin-left: 5%;
+    margin-bottom: 20px;
+    width: 60%;
+    height: 200px;
+}
+
+.cal{
+    border-radius: 10px;
+    text-align: center;
+    padding:10px;
+    margin-top:0%;
+    margin-left:5%;
+    width: 60%;
+    height: 400px;
+    position: relative;
+}
+
+.header {
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.logo {
+    height: 80px; 
+    width: 80px
+}
+
+.posting{
+    margin: 30px;
+    padding: 15px;
+    border: thin solid lightgrey;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.shift{
+    padding-left: 50px;
+}
+.main{
+    border-radius: 10px;
+}
+/* other from previous css */
+.c {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    margin: 20px;
+}
+
+.p{
+    margin-left:20%;
+}
+
+.correct {
+    margin-left: -105px
+}
+
+.innerDates{
+    padding: 10px;
+}
+
+
+
+.navbar {
+    padding: 0px;
+    border-bottom: 3px solid lightgrey;
+}
+
+.navbar-brand {
+    padding: 0px;
+    padding-left: 9%;
+}

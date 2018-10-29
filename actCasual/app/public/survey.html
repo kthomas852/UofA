@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--This is the Wireframe for the Landing Page page-->
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <link rel="stylesheet" href="submit.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get Ready to Act Casual</title>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <img src="images/yelp_bw.png" class="logo">
+            <p class="mega">Act Casual</p>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <div>
+                        <div class="row">
+                            <a class="nav-item nav-link" target="_blank" href="submit.html">Submit Your Story <span class="sr-only">(current)</span></a>
+                        </div>
+                        <div class="row">
+                            <form class="navbar-form" role="search">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        </nav>
+    </div>
+</head>
+<body>
+    <div class="containerfluid">
+        <div class="spacer"></div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-7 main mGray containerfluid">
+                <div class="about">
+                    <h1 class="c">Please Answer the following questions to be coupled</h1>
+                    <form action="../routing/apiRoutes.js" method="POST">
+                        First Name:<br>
+                        <input type="text" name="fName"><br>
+                        Photo Link:<br>
+                        <input type="text" name="pic"><br>
+                        <fieldset>
+                                <legend>Personal information Questionnaire</legend>
+                                <p>
+                                   <label>I'm interested in?</label>
+                                   <br>
+                                   <select id = "sex">
+                                     <option value = "1">Men</option>
+                                     <option value = "2">Women</option>
+                                     <option value = "3">Both</option>
+                                   </select>
+                                <br>
+                                <br>
+                                <label>Perferred Age Range:</label>
+                                <br>
+                                   <select id = "age">
+                                     <option value = "1">18-25</option>
+                                     <option value = "2">25-35</option>
+                                     <option value = "3">35-55</option>
+                                     <option value = "4">55-& up</option>
+                                     <option value = "5">Not Picky</option>
+                                   </select>
+                                <br>
+                                <br>
+                                <label>How Many siblings do you have:</label>
+                                <br>
+                                    <select id = "family">
+                                     <option value = "1">I'm Adopted</option>
+                                     <option value = "2">Only Child</option>
+                                     <option value = "3">1</option>
+                                     <option value = "4">2-3</option>
+                                     <option value = "5">Many a Sibling</option>
+                                    </select>
+                                <br>
+                                <br>
+                                <label>Personal Activity Level:</label>
+                                <br>
+                                    <select id = "activity">
+                                      <option value = "1">There is an outside?!?!?!</option>
+                                      <option value = "2">Seldom go out and love staying in, rarely travel, Home body</option>
+                                      <option value = "3">Like going out on the weekends but stay local during the week, travel only a few times a year</option>
+                                      <option value = "4">Travel all the time, always on the move, cannot sit still</option>
+                                      <option value = "5">Work, Work, Work, Work, Work!!!! and TRAVEL!</option>
+                                    </select>    
+                                <br>
+
+                            </p>
+                             </fieldset>
+                        <input type="submit" value="submit">
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="highlight mGray"><p class="c p">Spotlight Elements</p></div>
+                <div class="cal mGray"><p class="c p">[Events Calendar]</p></div>
+            </div>
+        </div>
+            <div class="row" style="height: 100px;"></div>
+            <!--<div class="row foot"><f>© Copy Right 2018 Kyle Thomas</f></div>-->
+        </div>
+        <script src="../data/freinds.js"></script>
+    </body>
+    </html>

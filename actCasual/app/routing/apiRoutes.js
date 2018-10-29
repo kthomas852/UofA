@@ -1,4 +1,3 @@
-var express = require('express');
 var friends = require('../data/friends');
 //API Routes
 //GET Route with the url /api/friends.  Displays JSON of possible friends
