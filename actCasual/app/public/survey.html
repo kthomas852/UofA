@@ -7,6 +7,7 @@
     <!--<link rel="stylesheet" href="style.css">-->
     <link rel="stylesheet" href="submit.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -47,11 +48,11 @@
             <div class="col-md-7 main mGray containerfluid">
                 <div class="about">
                     <h1 class="c">Please Answer the following questions to be coupled</h1>
-                    <form action="../routing/apiRoutes.js" method="POST">
-                        First Name:<br>
-                        <input type="text" name="fName"><br>
+                    <form method="POST" role="form">
+                        Full Name:<br>
+                        <input type="text" id="fName"><br>
                         Photo Link:<br>
-                        <input type="text" name="pic"><br>
+                        <input type="text" id="pic"><br>
                         <fieldset>
                                 <legend>Personal information Questionnaire</legend>
                                 <p>
@@ -111,6 +112,60 @@
             <div class="row" style="height: 100px;"></div>
             <!--<div class="row foot"><f>© Copy Right 2018 Kyle Thomas</f></div>-->
         </div>
-        <script src="../data/freinds.js"></script>
-    </body>
+        <!--<script src="../data/friends.js"></script>-->
+        </body>
+        <script>
+        
+            $(".submit").on("click", function(){
+    
+    // Here we grab the form elements
+    var newActor = {
+        name: $('#fName').val().trim(),
+        photo: $('#pic').val().trim(),
+        score: [
+            $('#age').val(),
+            $('#family').val(),
+            $('#activity').val(),
+            /*$('#reserve_email').val(),
+            $('#reserve_email').val(),
+            $('#reserve_email').val(),
+            $('#reserve_email').val(),
+            $('#reserve_email').val(),
+            $('#reserve_email').val(),
+    $('#reserve_email').val()*/]
+    };
+    
+    console.log(newActor);
+    
+    // This line is the magic. It's very similar to the standard ajax function we used.
+    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+    // depending on if a tables is available or not.
+    
+    // Here we get the location of the root page.
+    // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+    var currentURL = window.location.origin;
+    console.log(currentURL);
+    $.post(currentURL + "/api/friends", newActor,
+    function(data){
+    
+        // If a table is available... tell user they are booked.
+        if(data == true){
+            alert("You're offically in our system and a match is on it's way!")
+        }
+    
+        // If a table is available... tell user they on the waiting list.
+        if(data == false){
+            alert("Sorry you are on the wait list")
+        }
+    
+        // Clear the form when submitting
+       $('#fName').val("");
+        $('#pic').val("");
+    });
+    
+    return false;
+    
+    });
+        </script>
     </html>
