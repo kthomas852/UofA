@@ -1,17 +1,17 @@
-var html = require('html');
 var express = require('express');
-var path = require('path');
-var fs = require('fs');
+var bodyParser = require('body-parser');
 // may not need ALL these requires
 
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
-
-
+require("./app/routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes")(app);
+var friends = require('./app/data/friends.js');
+console.log(friends.members);
 app.listen(PORT, function(){
     console.log("ActCasual now Listening on PORT " + PORT);
 });

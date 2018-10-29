@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
 // Connecting to our database
 connection.connect();
 
-function promptSupervisor() {
+function supervisor() {
   inquirer
     .prompt([
       {
@@ -58,9 +58,10 @@ function addDepartment() {
     ])
     .then(function(val) {
       connection.query(
-        "INSERT INTO departments (department_name, over_head_costs) VALUES (?, ?)",
-        [val.name, val.overhead],
-        function(err) {
+        "INSERT INTO departments (department_name, over_head_costs) VALUES (?, ?)",[
+         val.name, 
+         val.overhead
+        ], function(err) {
           if (err) throw err;
           console.log("ADDED DEPARTMENT!");
           makeTable();
@@ -74,8 +75,8 @@ function viewSales() {
     "SELECT * FROM departments",
     function(err, res) {
       console.table(res);
-      promptSupervisor();
+      supervisor();
     }
   );
 }
-promptSupervisor()
+supervisor()
