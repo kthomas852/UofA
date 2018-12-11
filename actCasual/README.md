@@ -7,7 +7,7 @@ The goal of this app is to connect like minds and like personalities, whether it
 ### The Algorithm
 
 * Inputs:
-    * Interested In (Male/Female/both/other)
+    * Interested In (Male/Female/both)
     * Perfered Age Range
     * Personal Activity Level
         -High (travel all the time, always on the move, cannot sit still)

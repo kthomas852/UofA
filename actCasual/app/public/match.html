@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Get Ready to Act Casual!</title>
+  <!-- Latest compiled and minified CSS & JS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Act Casual</h1>
+      <h3>These are the people you matched with:</h3>
+      <hr>
+      <a href="/">
+        <button class="btn btn-danger btn-lg">
+          <span class="fa fa-th-list"></span> Home</button>
+      </a>
+    </div>
+
+    </div>
+        <script>
+         $.get("/api/friends", function(data) {
+          let lonely = data.slice(-1)[0].questions;
+          let matchArray = [];
+
+          function getSum(total, num) {
+             return total + num;
+           };
+
+          function coupling(mem1, mem2) {
+            let compatibilityArray = [];
+            console.log(mem2);
+            for (i = 0; i < mem1.length; i++) {
+              let dif = 0;
+              let me = parseInt(mem1[i]);
+              let them = parseInt(mem2[i])
+              if (me > them) {
+                dif = me - them;
+              } else {
+                dif = them - me
+              }
+              compatibilityArray.push(dif);
+            }
+            return compatibilityArray.reduce(getSum);
+          };
+
+          for (let i = 0; i < data.length - 1; i++) {
+            matchArray.push(coupling(lonely, data[i].questions));
+          }
+          console.log(matchArray);
+          console.log(Math.min.apply(Math, matchArray));
+          console.log(matchArray.indexOf(Math.min.apply(Math, matchArray)));
+          let theOne = data[matchArray.indexOf(Math.min.apply(Math, matchArray))];
+
+           var listGroupItem = $("<li class='list-group-item'>");
+
+           listGroupItem.append($("<h2>").text("Name: " + theOne.name));
+           listGroupItem.append($("<h3>").text("Photo: " + theOne.photo));
+           listGroupItem.append($("<h3>").text("Phone Number: (XXX) XXX - XXXX"));
+           listGroupItem.append($("<h3>").text("To see the phone number of your match please sign up for Casual Premium."));
+
+           $("body").append(listGroupItem);
+      });
+        </script>
+    </body>

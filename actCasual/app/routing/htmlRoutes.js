@@ -9,5 +9,10 @@ app.get("/", function(req, res){
 app.get("/survey", function(req, res){
     res.sendFile(path.join(__dirname, "/../public/survey.html"));
 });
+//GET route for Match after survey submit
+app.get("/match", function(req, res){
+    console.log(__dirname, "/../public/match.html");
+    res.sendFile(path.join(__dirname, "/../public/match.html"));
+});
 };
 //catch all route that leads back to home.html

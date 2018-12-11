@@ -1,171 +1,222 @@
 <!DOCTYPE html>
-<!--This is the Wireframe for the Landing Page page-->
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="style.css">-->
-    <link rel="stylesheet" href="submit.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://code.jquery.com/jquery.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Get Ready to Act Casual</title>
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <img src="images/yelp_bw.png" class="logo">
-            <p class="mega">Act Casual</p>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <div>
-                        <div class="row">
-                            <a class="nav-item nav-link" target="_blank" href="submit.html">Submit Your Story <span class="sr-only">(current)</span></a>
+    <title>Survey</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Act Casual</h1>
+            <h3>Please finish the survey below to be matched.</h3>
+            <hr>
+            <a href="/">
+                <button class="btn btn-danger btn-lg">
+                    <span class="fa fa-th-list"></span> Home</button>
+            </a>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Reservation Page -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">Table Reservation</h4>
                         </div>
-                        <div class="row">
-                            <form class="navbar-form" role="search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                                    </div>
+                        <div class="panel-body">
+
+                            <form method="POST" role="form">
+
+                                <div class="form-group">
+                                    <label for="">Name</label>
+                                    <input type="text" class="form-control" id="name">
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="">Photo Link</label>
+                                    <input type="text" class="form-control" id="pic">
+                                </div>
+
+                                <fieldset>
+                                    <legend>Personal Information Questionnaire</legend>
+                                    <p>
+                                       <label>I'm interested in?</label>
+                                       <br>
+                                       <select id = "sex">
+                                         <option value = "1">Men</option>
+                                         <option value = "2">Women</option>
+                                         <option value = "3">Both</option>
+                                       </select>
+                                    <br>
+                                    <br>
+                                    <label>Perferred Age Range:</label>
+                                    <br>
+                                       <select id = "Q2">
+                                         <option value = "1">18-25</option>
+                                         <option value = "2">25-35</option>
+                                         <option value = "3">35-55</option>
+                                         <option value = "4">55-& up</option>
+                                         <option value = "5">Not Picky</option>
+                                       </select>
+                                    <br>
+                                    <br>
+                                    <label>How Many siblings do you have:</label>
+                                    <br>
+                                        <select id = "Q3">
+                                         <option value = "1">I'm Adopted</option>
+                                         <option value = "2">Only Child</option>
+                                         <option value = "3">1</option>
+                                         <option value = "4">2-3</option>
+                                         <option value = "5">Many a Sibling</option>
+                                        </select>
+                                    <br>
+                                    <br>
+                                    <label>Personal Activity Level:</label>
+                                    <br>
+                                        <select id = "Q4">
+                                          <option value = "1">There is an outside?!?!?!</option>
+                                          <option value = "2">Seldom go out and love staying in, rarely travel, Home body</option>
+                                          <option value = "3">Like going out on the weekends but stay local during the week, travel only a few times a year</option>
+                                          <option value = "4">Travel all the time, always on the move, cannot sit still</option>
+                                          <option value = "5">Work, Work, Work, Work, Work!!!! and TRAVEL!</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>Pets?:</label>
+                                    <br>
+                                        <select id = "Q5">
+                                          <option value = "1">Not in my house!</option>
+                                          <option value = "2">Cat Person</option>
+                                          <option value = "3">All about the Kitty Doggy combo</option>
+                                          <option value = "4">Dog Person</option>
+                                          <option value = "5">I love Exotic animals</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>Smoking:</label>
+                                    <br>
+                                        <select id = "Q6">
+                                          <option value = "1">Non Smoker</option>
+                                          <option value = "2">Only when I'm drinking</option>
+                                          <option value = "3">Once a day</option>
+                                          <option value = "4">Twice a day</option>
+                                          <option value = "5">Like a Chimney</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>Drinking:</label>
+                                    <br>
+                                        <select id = "Q7">
+                                          <option value = "1">None for me thanks</option>
+                                          <option value = "2">Only on special Occations</option>
+                                          <option value = "3">Once a Month</option>
+                                          <option value = "4">Once a Week</option>
+                                          <option value = "5">Like a fish</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>Where do you prefer to live:</label>
+                                    <br>
+                                        <select id = "Q8">
+                                          <option value = "1">In the country with no one else around</option>
+                                          <option value = "2">In a small town</option>
+                                          <option value = "3">In the suburbs</option>
+                                          <option value = "4">Average city</option>
+                                          <option value = "5">Biggest city you got please!</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>Major Interests:</label>
+                                    <br>
+                                        <select id = "Q9">
+                                          <option value = "1">Working all the time</option>
+                                          <option value = "2">Watching Sports</option>
+                                          <option value = "3">Activly Playing Sports</option>
+                                          <option value = "4">Movies</option>
+                                          <option value = "5">Motorcycles and/or fast cars</option>
+                                        </select>    
+                                    <br>
+                                    <br>
+                                    <label>How important is physical appearance to you:</label>
+                                    <br>
+                                        <select id = "Q10">
+                                          <option value = "1">Love is blind</option>
+                                          <option value = "2">Only dressed up for special occations</option>
+                                          <option value = "3">As long as you can match the crowd you're in</option>
+                                          <option value = "4">Looking Snazzy more of the time</option>
+                                          <option value = "5">They better be a TEN</option>
+                                        </select>    
+                                    <br>
+    
+                                </p>
+                                 </fieldset>
+
+                                <button type="submit" class="btn btn-primary submit">Submit</button>
                             </form>
+
                         </div>
                     </div>
-        </nav>
-    </div>
-</head>
-<body>
-    <div class="containerfluid">
-        <div class="spacer"></div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-7 main mGray containerfluid">
-                <div class="about">
-                    <h1 class="c">Please Answer the following questions to be coupled</h1>
-                    <form method="POST" role="form">
-                        Full Name:<br>
-                        <input type="text" id="fName"><br>
-                        Photo Link:<br>
-                        <input type="text" id="pic"><br>
-                        <fieldset>
-                                <legend>Personal information Questionnaire</legend>
-                                <p>
-                                   <label>I'm interested in?</label>
-                                   <br>
-                                   <select id = "sex">
-                                     <option value = "1">Men</option>
-                                     <option value = "2">Women</option>
-                                     <option value = "3">Both</option>
-                                   </select>
-                                <br>
-                                <br>
-                                <label>Perferred Age Range:</label>
-                                <br>
-                                   <select id = "age">
-                                     <option value = "1">18-25</option>
-                                     <option value = "2">25-35</option>
-                                     <option value = "3">35-55</option>
-                                     <option value = "4">55-& up</option>
-                                     <option value = "5">Not Picky</option>
-                                   </select>
-                                <br>
-                                <br>
-                                <label>How Many siblings do you have:</label>
-                                <br>
-                                    <select id = "family">
-                                     <option value = "1">I'm Adopted</option>
-                                     <option value = "2">Only Child</option>
-                                     <option value = "3">1</option>
-                                     <option value = "4">2-3</option>
-                                     <option value = "5">Many a Sibling</option>
-                                    </select>
-                                <br>
-                                <br>
-                                <label>Personal Activity Level:</label>
-                                <br>
-                                    <select id = "activity">
-                                      <option value = "1">There is an outside?!?!?!</option>
-                                      <option value = "2">Seldom go out and love staying in, rarely travel, Home body</option>
-                                      <option value = "3">Like going out on the weekends but stay local during the week, travel only a few times a year</option>
-                                      <option value = "4">Travel all the time, always on the move, cannot sit still</option>
-                                      <option value = "5">Work, Work, Work, Work, Work!!!! and TRAVEL!</option>
-                                    </select>    
-                                <br>
 
-                            </p>
-                             </fieldset>
-                        <input type="submit" value="submit">
-                    </form>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="highlight mGray"><p class="c p">Spotlight Elements</p></div>
-                <div class="cal mGray"><p class="c p">[Events Calendar]</p></div>
-            </div>
         </div>
-            <div class="row" style="height: 100px;"></div>
-            <!--<div class="row foot"><f>© Copy Right 2018 Kyle Thomas</f></div>-->
         </div>
-        <!--<script src="../data/friends.js"></script>-->
-        </body>
-        <script>
-        
-            $(".submit").on("click", function(){
-    
-    // Here we grab the form elements
-    var newActor = {
-        name: $('#fName').val().trim(),
-        photo: $('#pic').val().trim(),
-        score: [
-            $('#age').val(),
-            $('#family').val(),
-            $('#activity').val(),
-            /*$('#reserve_email').val(),
-            $('#reserve_email').val(),
-            $('#reserve_email').val(),
-            $('#reserve_email').val(),
-            $('#reserve_email').val(),
-            $('#reserve_email').val(),
-    $('#reserve_email').val()*/]
-    };
-    
-    console.log(newActor);
-    
-    // This line is the magic. It's very similar to the standard ajax function we used.
-    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
-    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
-    // depending on if a tables is available or not.
-    
-    // Here we get the location of the root page.
-    // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
-    var currentURL = window.location.origin;
-    console.log(currentURL);
-    $.post(currentURL + "/api/friends", newActor,
-    function(data){
-    
-        // If a table is available... tell user they are booked.
-        if(data == true){
-            alert("You're offically in our system and a match is on it's way!")
-        }
-    
-        // If a table is available... tell user they on the waiting list.
-        if(data == false){
-            alert("Sorry you are on the wait list")
-        }
-    
-        // Clear the form when submitting
-       $('#fName').val("");
-        $('#pic').val("");
-    });
-    
-    return false;
-    
-    });
-        </script>
-    </html>
+
+    </body>
+
+    <script>
+        $(".submit").on("click", function(){
+let combined = [
+    $('#Q2').val().trim(),
+    $('#Q3').val().trim(),
+    $('#Q4').val().trim(),
+    $('#Q5').val().trim(),
+    $('#Q6').val().trim(),
+    $('#Q7').val().trim(),
+    $('#Q8').val().trim(),
+    $('#Q9').val().trim(),
+    $('#Q10').val().trim()];
+// Here we grab the form elements
+var newActor = {
+    name: $('#name').val().trim(),
+    photo: $('#pic').val().trim(),
+    sex: $('#sex').val().trim(),
+    questions: combined
+};
+
+console.log(newActor);
+var currentURL = window.location.origin;
+
+$.post(currentURL + "/api/friends", newActor,
+function(data){
+
+    // If a table is available... tell user they are booked.
+    if(data == true){
+        alert("Yay! You are officially booked!")
+    }
+
+    // If a table is available... tell user they on the waiting list.
+    if(data == false){
+        alert("Sorry you are on the wait list")
+    }
+
+    // Clear the form when submitting
+   $('#name').val("");
+    $('#pic').val("");
+    $('#sex').val("");
+    window.location.href = "/match";
+});
+
+return false;
+
+});
+    </script>
